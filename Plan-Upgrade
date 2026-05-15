@@ -1,0 +1,210 @@
+<div class="modal-overlay" id="plan-upgrade-modal">
+  <div class="modal-content" style="max-width:600px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">upgrade</span> Upgrade Your Insurance Plan</h2>
+      <button class="modal-close-btn" onclick="closePlanUpgradeModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="info-box info mb-16"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--accent)">info</span>Plan upgrades take effect on the <strong>1st day of the next quarter</strong> after approval. Your current coverage remains active until then.</div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:16px;color:var(--text)">Upgrade Process</div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:14px;background:var(--surface-2);border-radius:var(--radius-sm)">
+          <div style="width:32px;height:32px;background:var(--gradient-main);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;flex-shrink:0;font-size:0.85rem">1</div>
+          <div><div style="font-weight:600;margin-bottom:4px">Submit Plan Change Request</div><div style="font-size:0.83rem;color:var(--text-soft)">Select your desired new plan and fill out the Plan Change Request (PCR) form below. This requires payment of any difference in premium.</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:14px;background:var(--surface-2);border-radius:var(--radius-sm)">
+          <div style="width:32px;height:32px;background:var(--gradient-main);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;flex-shrink:0;font-size:0.85rem">2</div>
+          <div><div style="font-weight:600;margin-bottom:4px">Document Re-submission</div><div style="font-size:0.83rem;color:var(--text-soft)">Submit additional documents required by the new plan (e.g., income certificate, employment contract). Your existing documents may be reused if still valid.</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:14px;background:var(--surface-2);border-radius:var(--radius-sm)">
+          <div style="width:32px;height:32px;background:var(--gradient-main);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;flex-shrink:0;font-size:0.85rem">3</div>
+          <div><div style="font-weight:600;margin-bottom:4px">Admin Review & Approval</div><div style="font-size:0.83rem;color:var(--text-soft)">Your upgrade request will be reviewed within 5-10 business days. You'll receive an email and SMS notification upon approval or if additional info is needed.</div></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:14px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-sm)">
+          <div style="width:32px;height:32px;background:var(--gradient-green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;flex-shrink:0;font-size:0.85rem">4</div>
+          <div><div style="font-weight:600;margin-bottom:4px;color:var(--success)">New Plan Activated</div><div style="font-size:0.83rem;color:var(--text-soft)">On the 1st of the next quarter, your new plan becomes active. Your new PhilHealth MDR reflecting the upgraded plan will be issued at your branch.</div></div>
+        </div>
+      </div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px;color:var(--text)">Select Your New Plan</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+        <div class="payment-method" onclick="selectUpgradePlan(this,'STANDARD')" id="upgrade-standard">
+          <div class="payment-method-icon" style="background:rgba(59,130,246,0.12)">💙</div>
+          <div class="payment-method-info"><h4>Standard Plan — ₱300–₱5,000/month</h4><p>Inpatient + Outpatient, up to 5 dependents, dental & eye care</p></div>
+          <input type="radio" name="upgrade-plan" value="STANDARD" style="accent-color:var(--accent);margin-left:auto">
+        </div>
+        <div class="payment-method" onclick="selectUpgradePlan(this,'PREMIUM')" id="upgrade-premium">
+          <div class="payment-method-icon" style="background:rgba(245,158,11,0.12)">⭐</div>
+          <div class="payment-method-info"><h4>Premium Plus — ₱2,400/month</h4><p>All benefits, unlimited dependents, international emergency, priority</p></div>
+          <input type="radio" name="upgrade-plan" value="PREMIUM" style="accent-color:var(--accent);margin-left:auto">
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Reason for Upgrade <span style="color:var(--danger)">*</span></label>
+        <textarea class="input-field" id="upgrade-reason" rows="2" placeholder="e.g., Changed employment status, adding more dependents, need better coverage..."></textarea>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closePlanUpgradeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="submitPlanUpgrade()"><span class="material-symbols-rounded" style="font-size:16px">upgrade</span> Submit Upgrade Request</button>
+    </div>
+  </div>
+</div>
+
+<!-- Family Payer Modal -->
+<div class="modal-overlay" id="family-payer-modal">
+  <div class="modal-content" style="max-width:580px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">family_restroom</span> Family Coverage — Payer Information</h2>
+      <button class="modal-close-btn" onclick="closeFamilyPayerModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="info-box info mb-20"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--accent)">info</span>One person (the <strong>Principal Member</strong>) can pay for and cover their entire family. Dependents are covered under the principal's plan at no extra cost.</div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">Who Can Be Covered?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px"><div style="font-weight:600;margin-bottom:4px">👫 Spouse</div><div style="font-size:0.8rem;color:var(--text-soft)">Legal spouse only (must present Marriage Certificate)</div></div>
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px"><div style="font-weight:600;margin-bottom:4px">👶 Children</div><div style="font-size:0.8rem;color:var(--text-soft)">Unmarried, below 21 years old (PSA Birth Certificate required)</div></div>
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px"><div style="font-weight:600;margin-bottom:4px">👴 Parents</div><div style="font-size:0.8rem;color:var(--text-soft)">60+ years old with no other income source</div></div>
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px"><div style="font-weight:600;margin-bottom:4px">♿ Dependents</div><div style="font-size:0.8rem;color:var(--text-soft)">Physically/mentally disabled children regardless of age</div></div>
+      </div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">How Payments Work</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+        <div style="display:flex;gap:10px;align-items:center;font-size:0.85rem;padding:10px;background:var(--surface-2);border-radius:8px"><span class="material-symbols-rounded" style="font-size:18px;color:var(--accent)">check_circle</span>The principal member pays one monthly contribution covering all registered dependents</div>
+        <div style="display:flex;gap:10px;align-items:center;font-size:0.85rem;padding:10px;background:var(--surface-2);border-radius:8px"><span class="material-symbols-rounded" style="font-size:18px;color:var(--accent)">check_circle</span>Contribution amount is based on the principal's income and plan, NOT the number of dependents</div>
+        <div style="display:flex;gap:10px;align-items:center;font-size:0.85rem;padding:10px;background:var(--surface-2);border-radius:8px"><span class="material-symbols-rounded" style="font-size:18px;color:var(--accent)">check_circle</span>All dependents share the same coverage limit as the principal member</div>
+        <div style="display:flex;gap:10px;align-items:center;font-size:0.85rem;padding:10px;background:var(--surface-2);border-radius:8px"><span class="material-symbols-rounded" style="font-size:18px;color:var(--accent)">check_circle</span>Beneficiaries: upon principal's death, dependents automatically become independent members</div>
+      </div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">Add Family Members</div>
+      <div id="family-members-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:0.85rem"><span><strong>Maria Santos</strong> — Spouse</span><button onclick="this.parentElement.remove()" style="background:rgba(239,68,68,0.1);color:var(--danger);border:none;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:0.78rem">Remove</button></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end">
+        <div class="input-group"><label>Full Name</label><input type="text" class="input-field" id="fam-name" placeholder="Dependent's full name"></div>
+        <div class="input-group"><label>Relationship</label>
+          <div class="select-wrapper"><select class="input-field" id="fam-rel"><option>Spouse</option><option>Child</option><option>Parent</option><option>Other Dependent</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="addFamilyMember()" style="margin-bottom:0"><span class="material-symbols-rounded" style="font-size:16px">add</span></button>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeFamilyPayerModal()">Close</button>
+      <button class="btn btn-primary" onclick="saveFamilyMembers()"><span class="material-symbols-rounded" style="font-size:16px">save</span> Save Family Members</button>
+    </div>
+  </div>
+</div>
+
+<!-- Beneficiaries Modal -->
+<div class="modal-overlay" id="beneficiaries-modal">
+  <div class="modal-content" style="max-width:540px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">people</span> Beneficiaries & Claims Guide</h2>
+      <button class="modal-close-btn" onclick="closeBeneficiariesModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="info-box success mb-20"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--success)">verified_user</span>Health Insurance covers both the <strong>principal member AND their registered dependents</strong> — no separate premium needed.</div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">Primary Beneficiaries</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.85rem"><strong style="color:var(--accent)">Legal Spouse</strong> — Receives full benefits. Must be registered on the PMRF (PhilHealth Member Registration Form).</div>
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.85rem"><strong style="color:var(--accent)">Legitimate Children</strong> — All unmarried children below 21. PSA Birth Certificate required.</div>
+      </div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">Secondary Beneficiaries</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.85rem"><strong style="color:var(--gold)">Parents</strong> — If no spouse or children exist. Must be 60+ with no independent income.</div>
+        <div style="padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.85rem"><strong style="color:var(--gold)">Siblings</strong> — Only if no primary or parent beneficiaries exist. Must be unmarried & below 21.</div>
+      </div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">💰 When Do Members Get Money?</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.83rem"><span class="material-symbols-rounded" style="font-size:18px;color:var(--success);flex-shrink:0">local_hospital</span><div><strong>Hospitalization (Inpatient)</strong> — Health Insurance pays the hospital directly. You present your PhilHealth ID + MDR at admission. The hospital deducts the covered amount from your bill.</div></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.83rem"><span class="material-symbols-rounded" style="font-size:18px;color:var(--accent);flex-shrink:0">receipt</span><div><strong>Outpatient / Reimbursement</strong> — If you paid out-of-pocket, you can file a reimbursement claim at any PhilHealth branch within 60 days, with all receipts and medical records.</div></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.83rem"><span class="material-symbols-rounded" style="font-size:18px;color:var(--gold);flex-shrink:0">emergency</span><div><strong>Emergency Events</strong> — Coverage is automatic if the hospital is PhilHealth-accredited. Show your ID at the ER. For non-accredited hospitals, you can claim reimbursement after discharge.</div></div>
+      </div>
+      <div style="font-size:0.9rem;font-weight:700;margin-bottom:12px">📋 Requirements to Claim Benefits</div>
+      <div style="padding:16px;background:var(--surface-2);border-radius:var(--radius-sm);font-size:0.83rem">
+        <div style="margin-bottom:8px;display:flex;gap:8px;align-items:center"><span class="material-symbols-rounded" style="font-size:16px;color:var(--success)">check_circle</span>Valid PhilHealth ID or MDR</div>
+        <div style="margin-bottom:8px;display:flex;gap:8px;align-items:center"><span class="material-symbols-rounded" style="font-size:16px;color:var(--success)">check_circle</span>Hospital discharge summary & billing statement</div>
+        <div style="margin-bottom:8px;display:flex;gap:8px;align-items:center"><span class="material-symbols-rounded" style="font-size:16px;color:var(--success)">check_circle</span>Official receipts for all payments made</div>
+        <div style="margin-bottom:8px;display:flex;gap:8px;align-items:center"><span class="material-symbols-rounded" style="font-size:16px;color:var(--success)">check_circle</span>Attending physician's clinical abstract</div>
+        <div style="display:flex;gap:8px;align-items:center"><span class="material-symbols-rounded" style="font-size:16px;color:var(--success)">check_circle</span>PhilHealth Claim Form 1 (CF1) — available at branches or downloadable</div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="closeBeneficiariesModal()">Got It</button>
+    </div>
+  </div>
+</div>
+<!-- New Plan Modal (Super Admin) -->
+<div class="modal-overlay" id="new-plan-modal">
+  <div class="modal-content" style="max-width:620px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">add_circle</span> Create New Insurance Plan</h2>
+      <button class="modal-close-btn" onclick="closeNewPlanModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row mb-16">
+        <div class="input-group"><label>Plan Name <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="np-name" placeholder="e.g., Gold Plan"></div>
+        <div class="input-group"><label>Plan Icon</label><input type="text" class="input-field" id="np-icon" placeholder="e.g., 💎" maxlength="4"></div>
+      </div>
+      <div class="form-row mb-16">
+        <div class="input-group"><label>Monthly Contribution (₱) <span style="color:var(--danger)">*</span></label><input type="number" class="input-field" id="np-price" placeholder="e.g., 1500" min="0"></div>
+        <div class="input-group"><label>Annual Coverage Limit (₱) <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="np-coverage" placeholder="e.g., 250,000 or Unlimited"></div>
+      </div>
+      <div class="form-row mb-16">
+        <div class="input-group"><label>Max Dependents</label><input type="number" class="input-field" id="np-dependents" placeholder="e.g., 4" min="0"></div>
+        <div class="input-group"><label>Plan Status</label>
+          <div class="select-wrapper"><select class="input-field" id="np-status"><option value="Active">Active</option><option value="Draft">Draft</option><option value="Inactive">Inactive</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+        </div>
+      </div>
+      <div class="input-group mb-16">
+        <label>Plan Description <span style="color:var(--danger)">*</span></label>
+        <textarea class="input-field" id="np-description" rows="3" placeholder="Describe the plan benefits and target members..."></textarea>
+      </div>
+      <div style="font-size:0.85rem;font-weight:700;color:var(--text-soft);margin-bottom:10px">Coverage Features (check all that apply)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f1"> Inpatient Coverage</label>
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f2"> Outpatient Coverage</label>
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f3"> Dental & Eye Care</label>
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f4"> International Emergency</label>
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f5"> Maternity Benefits</label>
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f6"> Mental Health Coverage</label>
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f7"> Priority Processing</label>
+        <label class="checkbox-label" style="padding:10px;background:var(--surface-2);border-radius:8px;margin:0"><input type="checkbox" id="np-f8"> Z-Benefits (Cancer/Rare)</label>
+      </div>
+      <div class="input-group">
+        <label>Required Documents (one per line)</label>
+        <textarea class="input-field" id="np-docs" rows="3" placeholder="Valid Government ID&#10;Proof of Income&#10;Recent 2x2 Photo"></textarea>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeNewPlanModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveNewPlan()"><span class="material-symbols-rounded" style="font-size:16px">save</span> Save Plan</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="philsys-modal">
+  <div class="modal-content" style="max-width:480px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">verified_user</span> PhilSys ID Verification</h2>
+      <button class="modal-close-btn" onclick="closePhilSysModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div id="philsys-loading" style="text-align:center;padding:20px">
+        <span class="material-symbols-rounded" style="font-size:48px;color:var(--accent);animation:spin 1.5s linear infinite;display:block;margin-bottom:16px">autorenew</span>
+        <p style="color:var(--text-soft)">Verifying your PhilSys National ID...</p>
+      </div>
+      <div id="philsys-success" style="display:none">
+        <div class="info-box success mb-16"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--success)">check_circle</span>Identity verified successfully via PhilSys.</div>
+        <div class="modal-grid">
+          <div class="modal-field full"><label>Full Name</label><div class="modal-field-value" style="font-weight:700">Juan Dela Cruz</div></div>
+          <div class="modal-field"><label>PhilSys ID</label><div class="modal-field-value">PHL-2847-5934-1204</div></div>
+          <div class="modal-field"><label>Date of Birth</label><div class="modal-field-value">May 15, 1990</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closePhilSysModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="completePhilSysLogin()" id="philsys-confirm-btn" style="display:none">Sign In</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- Toast container -->
+<div class="toast-container" id="toast-container"></div>
