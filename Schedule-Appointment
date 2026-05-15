@@ -1,0 +1,71 @@
+<div id="schedule-management-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>📅 Schedule & Appointment Management</h1>
+      <p>Configure time slots, manage branches, and block holidays</p>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:24px">
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>⏰ Time Slots Configuration</h3>
+          <button class="btn btn-sm btn-primary" onclick="openTimeSlotModal()"><span class="material-symbols-rounded" style="font-size:16px">add</span> Add Slot</button>
+        </div>
+        <div style="padding:24px">
+          <div id="slots-list" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+            <div style="padding:12px;background:var(--surface-2);border-radius:8px;text-align:center">
+              <div style="font-weight:600;margin-bottom:4px">8:00 AM - 9:00 AM</div>
+              <div style="font-size:0.85rem;color:var(--success)">✓ Available (3/5)</div>
+            </div>
+            <div style="padding:12px;background:var(--surface-2);border-radius:8px;text-align:center">
+              <div style="font-weight:600;margin-bottom:4px">10:00 AM - 11:00 AM</div>
+              <div style="font-size:0.85rem;color:var(--success)">✓ Available (4/5)</div>
+            </div>
+            <div style="padding:12px;background:var(--surface-2);border-radius:8px;text-align:center">
+              <div style="font-weight:600;margin-bottom:4px">2:00 PM - 3:00 PM</div>
+              <div style="font-size:0.85rem;color:var(--danger)">✗ Full</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>🏢 Branches/Centers</h3>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px">
+          <div style="padding:12px;background:var(--surface-2);border-radius:8px">
+            <div style="font-weight:600;margin-bottom:4px">📍 Manila Center</div>
+            <div style="font-size:0.85rem;color:var(--text-soft)">Address: Makati, Manila</div>
+            <div style="font-size:0.85rem;color:var(--text-muted)">Capacity: 45/50</div>
+          </div>
+          <div style="padding:12px;background:var(--surface-2);border-radius:8px">
+            <div style="font-weight:600;margin-bottom:4px">📍 Cebu Center</div>
+            <div style="font-size:0.85rem;color:var(--text-soft)">Address: Cebu City</div>
+            <div style="font-size:0.85rem;color:var(--text-muted)">Capacity: 38/50</div>
+          </div>
+          <button class="btn btn-sm btn-primary" onclick="openBranchModal()" style="margin-top:8px"><span class="material-symbols-rounded" style="font-size:14px">add</span> New Branch</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>🚫 Holiday Calendar</h3>
+        <button class="btn btn-sm btn-primary" onclick="openHolidayModal()"><span class="material-symbols-rounded" style="font-size:16px">event</span> Block Date</button>
+      </div>
+      <div style="padding:24px">
+        <div id="holidays-list" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+          <div style="padding:12px;background:rgba(239,68,68,0.1);border-left:3px solid var(--danger);border-radius:6px">
+            <div style="font-size:0.85rem;font-weight:600">May 17, 2026</div>
+            <div style="font-size:0.78rem;color:var(--text-soft);margin-top:4px">Unang Araw ng Mayo (delayed)</div>
+          </div>
+          <div style="padding:12px;background:rgba(239,68,68,0.1);border-left:3px solid var(--danger);border-radius:6px">
+            <div style="font-size:0.85rem;font-weight:600">June 12, 2026</div>
+            <div style="font-size:0.78rem;color:var(--text-soft);margin-top:4px">Independence Day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
