@@ -1,0 +1,130 @@
+<div id="plan-requests-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>🔄 Plan Change Requests</h1>
+      <p>Review and act on member requests to upgrade their insurance plan</p>
+    </div>
+
+    <div class="admin-stats" id="upgrade-stats" style="margin-bottom:24px">
+      <div class="admin-stat"><div class="label">⏳ Pending</div><div class="value" id="upg-stat-pending" style="color:var(--warning)">0</div></div>
+      <div class="admin-stat"><div class="label">✅ Approved</div><div class="value" id="upg-stat-approved" style="color:var(--success)">0</div></div>
+      <div class="admin-stat"><div class="label">❌ Rejected</div><div class="value" id="upg-stat-rejected" style="color:var(--danger)">0</div></div>
+      <div class="admin-stat"><div class="label">📋 Total</div><div class="value" id="upg-stat-total">0</div></div>
+    </div>
+
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>📋 All Upgrade Requests</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <input type="text" class="input-field" id="upg-search" placeholder="Search by name or email..." style="width:220px;padding:8px 12px;font-size:0.85rem" oninput="renderUpgradeRequests()">
+          <div class="select-wrapper" style="width:150px">
+            <select class="input-field" id="upg-filter" style="padding:8px 12px;font-size:0.85rem" onchange="renderUpgradeRequests()">
+              <option value="">All Status</option>
+              <option value="Pending">Pending</option>
+              <option value="Approved">Approved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+            <span class="material-symbols-rounded chevron">expand_more</span>
+          </div>
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>Member</th>
+              <th>Requested Plan</th>
+              <th>Reason</th>
+              <th>Submitted</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="upgrade-requests-tbody"></tbody>
+        </table>
+        <div id="upgrade-requests-empty" class="empty-state hidden">
+          <div class="icon"><span class="material-symbols-rounded" style="font-size:56px">swap_horiz</span></div>
+          <h3>No Upgrade Requests</h3>
+          <p>No members have submitted a plan change request yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Plan Request Detail Modal -->
+<div class="modal-overlay" id="upgrade-detail-modal">
+  <div class="modal-content" style="max-width:540px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">upgrade</span> Plan Change Request Detail</h2>
+      <button class="modal-close-btn" onclick="closeUpgradeDetailModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">person</span> Member Info</h3>
+        <div class="modal-grid">
+          <div class="modal-field"><label>Request ID</label><div class="modal-field-value" id="ud-req-id" style="font-family:monospace">—</div></div>
+          <div class="modal-field"><label>Status</label><div class="modal-field-value" id="ud-status">—</div></div>
+          <div class="modal-field"><label>Member Name</label><div class="modal-field-value" id="ud-name">—</div></div>
+          <div class="modal-field"><label>Email</label><div class="modal-field-value" id="ud-email" style="font-size:0.85rem">—</div></div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">health_and_safety</span> Plan Details</h3>
+        <div class="modal-grid">
+          <div class="modal-field"><label>Requested Plan</label><div class="modal-field-value" id="ud-plan" style="color:var(--accent);font-weight:700">—</div></div>
+          <div class="modal-field"><label>Submitted On</label><div class="modal-field-value" id="ud-date" style="font-size:0.85rem">—</div></div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">chat</span> Reason for Upgrade</h3>
+        <div style="padding:14px;background:var(--surface-2);border-radius:var(--radius-sm);font-size:0.87rem;color:var(--text-soft);line-height:1.7" id="ud-reason">—</div>
+      </div>
+      <div class="modal-section" id="ud-admin-note-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">note_alt</span> Admin Note (Optional)</h3>
+        <textarea class="input-field" id="ud-admin-note" rows="2" placeholder="Add a note to the member about this decision..."></textarea>
+      </div>
+    </div>
+    <div class="modal-actions" id="ud-actions"></div>
+  </div>
+</div>
+
+<!-- ================================================================
+     MODALS
+     ================================================================ -->
+ 
+<!-- File Manager -->
+<div class="modal-overlay" id="file-manager-modal">
+  <div class="modal-content" style="max-width:720px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">folder_open</span> Select Document</h2>
+      <button class="modal-close-btn" onclick="closeFileModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="info-box info mb-20"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--accent)">info</span>Select the correct document for each requirement. Your files must be valid and match the expected format.</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;text-align:center">
+        <div class="file-item" onclick="selectFile('Valid Government ID')">
+          <div style="display:flex;justify-content:center;margin-bottom:12px"><div style="width:60px;height:60px;background:var(--gradient-main);border-radius:12px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:34px;color:white">badge</span></div></div>
+          <p style="font-size:0.87rem;color:var(--text);font-weight:600">Valid Government ID.docx</p>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">Required: Government ID</p>
+        </div>
+        <div class="file-item" onclick="selectFile('Proof of Address')">
+          <div style="display:flex;justify-content:center;margin-bottom:12px"><div style="width:60px;height:60px;background:var(--gradient-gold);border-radius:12px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:34px;color:white">home</span></div></div>
+          <p style="font-size:0.87rem;color:var(--text);font-weight:600">Proof of Address.pdf</p>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">Required: Proof of Address</p>
+        </div>
+        <div class="file-item" onclick="selectFile('Recent 2x2 Photo')">
+          <div style="display:flex;justify-content:center;margin-bottom:12px"><div style="width:60px;height:60px;background:var(--gradient-green);border-radius:12px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:34px;color:white">portrait</span></div></div>
+          <p style="font-size:0.87rem;color:var(--text);font-weight:600">2x2.png</p>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">Required: 2x2 Photo</p>
+        </div>
+        <div class="file-item" onclick="selectFile('Medical Certificate (Recent)')">
+          <div style="display:flex;justify-content:center;margin-bottom:12px"><div style="width:60px;height:60px;background:linear-gradient(135deg,#10B981,#34d399);border-radius:12px;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:34px;color:white">medical_information</span></div></div>
+          <p style="font-size:0.87rem;color:var(--text);font-weight:600">Medical Certificate.pdf</p>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:4px">Required: Medical Certificate (within 6 months)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
