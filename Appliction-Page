@@ -1,0 +1,264 @@
+<div id="application-page" class="page">
+  <div class="container-sm">
+    <div style="padding:32px 0">
+      <button class="back-btn" onclick="navigate('plans')"><span class="material-symbols-rounded" style="font-size:16px">arrow_back</span> Back to Plans</button>
+      <div class="page-header">
+        <h1 id="app-plan-title">Apply for Health Insurance</h1>
+        <p>Complete all steps to submit your Health Insurance enrollment application</p>
+      </div>
+ 
+      <!-- Selected Plan Summary -->
+      <div class="selected-plan-summary mb-24" id="plan-summary-bar">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(59,130,246,0.15);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0" id="plan-sum-icon">💙</div>
+        <div>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Selected Plan</div>
+          <div style="font-size:1rem;font-weight:700" id="plan-sum-name">Standard Plan</div>
+          <div style="font-size:0.82rem;color:var(--text-soft)" id="plan-sum-price">₱300–₱5,000/month</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" style="margin-left:auto" onclick="navigate('plans')">Change Plan</button>
+      </div>
+ 
+      <!-- Step Indicator (4 steps) -->
+      <div class="step-indicator">
+        <div class="step active" id="step-1">
+          <div class="step-circle" id="s1-circle">1</div>
+          <div class="step-label">Personal Info</div>
+        </div>
+        <div class="step-line" id="line-1"></div>
+        <div class="step" id="step-2">
+          <div class="step-circle" id="s2-circle">2</div>
+          <div class="step-label">Address</div>
+        </div>
+        <div class="step-line" id="line-2"></div>
+        <div class="step" id="step-3">
+          <div class="step-circle" id="s3-circle">3</div>
+          <div class="step-label">Documents</div>
+        </div>
+        <div class="step-line" id="line-3"></div>
+        <div class="step" id="step-4">
+          <div class="step-circle" id="s4-circle">4</div>
+          <div class="step-label">Schedule & Pay</div>
+        </div>
+      </div>
+ 
+      <!-- STEP 1: Personal Info -->
+      <div id="app-step-1">
+        <div class="form-section">
+          <h3><span class="material-symbols-rounded">person</span> Personal Information</h3>
+          <div class="form-row mb-16">
+            <div class="input-group"><label>First Name <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="fname" placeholder="First Name"></div>
+            <div class="input-group"><label>Last Name <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="lname" placeholder="Last Name"></div>
+          </div>
+          <div class="form-row mb-16">
+            <div class="input-group"><label>Middle Name <span style="color:var(--text-muted);font-size:0.78rem">(Optional)</span></label><input type="text" class="input-field" id="mname" placeholder="Middle Name"></div>
+            <div class="input-group"><label>Date of Birth <span style="color:var(--danger)">*</span></label><input type="date" class="input-field" id="dob" style="color:white"></div>
+          </div>
+          <div class="form-row mb-16">
+            <div class="input-group">
+              <label>Gender <span style="color:var(--danger)">*</span></label>
+              <div class="select-wrapper"><select class="input-field" id="gender"><option value="">Select Gender</option><option>Male</option><option>Female</option><option>Prefer not to say</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+            </div>
+            <div class="input-group">
+              <label>Civil Status <span style="color:var(--danger)">*</span></label>
+              <div class="select-wrapper"><select class="input-field" id="civil-status"><option value="">Select Civil Status</option><option>Single</option><option>Married</option><option>Widowed</option><option>Separated</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+            </div>
+          </div>
+          <div class="form-row mb-16">
+            <div class="input-group"><label>Contact Number <span style="color:var(--danger)">*</span></label><input type="tel" class="input-field" id="contact" placeholder="09XXXXXXXXX" maxlength="11"></div>
+            <div class="input-group"><label>Email Address <span style="color:var(--danger)">*</span></label><input type="email" class="input-field" id="app-email" placeholder="name@email.com"></div>
+          </div>
+          <div class="form-row">
+            <div class="input-group">
+              <label>Membership Category <span style="color:var(--danger)">*</span></label>
+              <div class="select-wrapper"><select class="input-field" id="membership-cat"><option value="">Select Category</option><option>Employed (Private Sector)</option><option>Employed (Government)</option><option>Self-Employed</option><option>Voluntary Member</option><option>OFW</option><option>Indigent / Sponsored</option><option>Retiree/Pensioner</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+            </div>
+            <div class="input-group"><label>Monthly Income (PHP) <span style="color:var(--danger)">*</span></label><input type="number" class="input-field" id="monthly-income" placeholder="0.00" min="0"></div>
+          </div>
+        </div>
+        <div class="flex gap-12" style="justify-content:flex-end">
+          <button class="btn btn-ghost" onclick="navigate('plans')">Cancel</button>
+          <button class="btn btn-primary" onclick="validateStep1()">Next Step <span class="material-symbols-rounded">arrow_forward</span></button>
+        </div>
+      </div>
+ 
+      <!-- STEP 2: Address -->
+      <div id="app-step-2" class="hidden">
+        <div class="form-section">
+          <h3><span class="material-symbols-rounded">location_on</span> Address Information</h3>
+          <div class="input-group mb-16" style="display:block">
+            <label>Street Address / Barangay <span style="color:var(--danger)">*</span></label>
+            <input type="text" class="input-field" id="street" placeholder="House/Unit No., Street Name, Barangay">
+          </div>
+          <div class="form-row mb-16">
+            <div class="input-group"><label>City / Municipality <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="city" placeholder="City / Municipality"></div>
+            <div class="input-group"><label>Province <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="province" placeholder="Province"></div>
+          </div>
+          <div class="form-row">
+            <div class="input-group">
+              <label>Region <span style="color:var(--danger)">*</span></label>
+              <div class="select-wrapper"><select class="input-field" id="region"><option value="">Select Region</option><option>NCR – National Capital Region</option><option>Region I – Ilocos Region</option><option>Region II – Cagayan Valley</option><option>Region III – Central Luzon</option><option>Region IV-A – CALABARZON</option><option>MIMAROPA</option><option>Region V – Bicol Region</option><option>Region VI – Western Visayas</option><option>Region VII – Central Visayas</option><option>Region VIII – Eastern Visayas</option><option>Region IX – Zamboanga Peninsula</option><option>Region X – Northern Mindanao</option><option>Region XI – Davao Region</option><option>Region XII – SOCCSKSARGEN</option><option>Region XIII – Caraga</option><option>BARMM</option><option>CAR</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+            </div>
+            <div class="input-group"><label>ZIP Code <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="zip" placeholder="ZIP Code" inputmode="numeric" maxlength="4"></div>
+          </div>
+        </div>
+        <div class="flex gap-12" style="justify-content:flex-end">
+          <button class="btn btn-ghost" onclick="goToStep(1)"><span class="material-symbols-rounded">arrow_back</span> Previous</button>
+          <button class="btn btn-primary" onclick="validateStep2()">Next Step <span class="material-symbols-rounded">arrow_forward</span></button>
+        </div>
+      </div>
+ 
+      <!-- STEP 3: Documents -->
+      <div id="app-step-3" class="hidden">
+        <div class="form-section">
+          <h3><span class="material-symbols-rounded">upload_file</span> Document Requirements</h3>
+          <div class="info-box info mb-24"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--accent)">info</span>Upload clear, legible scans or photos. Files must be JPG, PNG, or PDF, maximum 5MB each. All three documents are required.</div>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <!-- Gov ID -->
+            <div class="input-group">
+              <label>Valid Government ID (Front) <span style="color:var(--danger)">*</span></label>
+              <div style="border:2px dashed var(--border);border-radius:var(--radius-sm);padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(59,130,246,0.03)"
+                onclick="openFileManager('gov-id')"
+                onmouseenter="this.style.borderColor='var(--accent)';this.style.background='rgba(59,130,246,0.07)'"
+                onmouseleave="this.style.borderColor='var(--border)';this.style.background='rgba(59,130,246,0.03)'"
+                id="gov-id-container">
+                <div id="gov-id-preview" style="display:none;text-align:center">
+                  <div style="width:56px;height:56px;background:var(--gradient-main);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><span class="material-symbols-rounded" style="font-size:32px;color:white">description</span></div>
+                  <p style="font-size:0.85rem;color:var(--text);margin:0;font-weight:600" id="gov-id-name"></p>
+                  <p style="font-size:0.78rem;color:var(--success);margin-top:4px">✓ File selected</p>
+                </div>
+                <div id="gov-id-placeholder"><span class="material-symbols-rounded" style="font-size:36px;color:var(--text-muted)">folder_open</span><p style="font-size:0.85rem;color:var(--text-muted);margin-top:8px">Click to select file</p></div>
+              </div>
+              <input type="hidden" id="doc-id-selected">
+            </div>
+            <!-- Proof of Address -->
+            <div class="input-group">
+              <label>Proof of Address <span style="color:var(--danger)">*</span></label>
+              <div style="border:2px dashed var(--border);border-radius:var(--radius-sm);padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(59,130,246,0.03)"
+                onclick="openFileManager('address')"
+                onmouseenter="this.style.borderColor='var(--accent)';this.style.background='rgba(59,130,246,0.07)'"
+                onmouseleave="this.style.borderColor='var(--border)';this.style.background='rgba(59,130,246,0.03)'"
+                id="address-container">
+                <div id="address-preview" style="display:none;text-align:center">
+                  <div style="width:56px;height:56px;background:var(--gradient-gold);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><span class="material-symbols-rounded" style="font-size:32px;color:white">picture_as_pdf</span></div>
+                  <p style="font-size:0.85rem;color:var(--text);margin:0;font-weight:600" id="address-name"></p>
+                  <p style="font-size:0.78rem;color:var(--success);margin-top:4px">✓ File selected</p>
+                </div>
+                <div id="address-placeholder"><span class="material-symbols-rounded" style="font-size:36px;color:var(--text-muted)">folder_open</span><p style="font-size:0.85rem;color:var(--text-muted);margin-top:8px">Click to select file</p></div>
+              </div>
+              <input type="hidden" id="doc-address-selected">
+            </div>
+            <!-- Photo -->
+            <div class="input-group">
+              <label>Recent 2x2 ID Photo <span style="color:var(--danger)">*</span></label>
+              <div style="border:2px dashed var(--border);border-radius:var(--radius-sm);padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(59,130,246,0.03)"
+                onclick="openFileManager('photo')"
+                onmouseenter="this.style.borderColor='var(--accent)';this.style.background='rgba(59,130,246,0.07)'"
+                onmouseleave="this.style.borderColor='var(--border)';this.style.background='rgba(59,130,246,0.03)'"
+                id="photo-container">
+                <div id="photo-preview" style="display:none;text-align:center">
+                  <div style="width:56px;height:56px;background:var(--gradient-green);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><span class="material-symbols-rounded" style="font-size:32px;color:white">image</span></div>
+                  <p style="font-size:0.85rem;color:var(--text);margin:0;font-weight:600" id="photo-name"></p>
+                  <p style="font-size:0.78rem;color:var(--success);margin-top:4px">✓ File selected</p>
+                </div>
+                <div id="photo-placeholder"><span class="material-symbols-rounded" style="font-size:36px;color:var(--text-muted)">folder_open</span><p style="font-size:0.85rem;color:var(--text-muted);margin-top:8px">Click to select file</p></div>
+              </div>
+              <input type="hidden" id="doc-photo-selected">
+            </div>
+            <!-- Notes -->
+            <div class="input-group">
+              <label>Recent Medical Certificate <span style="color:var(--danger)">*</span></label>
+              <div style="border:2px dashed var(--border);border-radius:var(--radius-sm);padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(16,185,129,0.03)"
+                onclick="openFileManager('medical')"
+                onmouseenter="this.style.borderColor='var(--success)';this.style.background='rgba(16,185,129,0.07)'"
+                onmouseleave="this.style.borderColor='var(--border)';this.style.background='rgba(16,185,129,0.03)'"
+                id="medical-container">
+                <div id="medical-preview" style="display:none;text-align:center">
+                  <div style="width:56px;height:56px;background:var(--gradient-green);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px"><span class="material-symbols-rounded" style="font-size:32px;color:white">medical_information</span></div>
+                  <p style="font-size:0.85rem;color:var(--text);margin:0;font-weight:600" id="medical-name"></p>
+                  <p style="font-size:0.78rem;color:var(--success);margin-top:4px">✓ File selected</p>
+                </div>
+                <div id="medical-placeholder"><span class="material-symbols-rounded" style="font-size:36px;color:var(--success)">medical_information</span><p style="font-size:0.85rem;color:var(--text-soft);margin-top:8px;font-weight:600">Upload Recent Medical Certificate</p><p style="font-size:0.78rem;color:var(--text-muted);margin-top:4px">Must be issued within the last 6 months by a licensed physician</p></div>
+              </div>
+              <input type="hidden" id="doc-medical-selected">
+            </div>
+            <div class="input-group">
+              <label>Additional Notes <span style="color:var(--text-muted);font-size:0.78rem">(Optional)</span></label>
+              <textarea class="input-field" id="app-notes" rows="3" placeholder="Any additional information relevant to your application (e.g., dependent details, special circumstances)..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-12" style="justify-content:flex-end">
+          <button class="btn btn-ghost" onclick="goToStep(2)"><span class="material-symbols-rounded">arrow_back</span> Previous</button>
+          <button class="btn btn-primary" onclick="validateStep3()">Next Step <span class="material-symbols-rounded">arrow_forward</span></button>
+        </div>
+      </div>
+ 
+      <!-- STEP 4: Schedule & Payment -->
+      <div id="app-step-4" class="hidden">
+        <div class="form-section">
+          <h3><span class="material-symbols-rounded">calendar_month</span> Schedule Pickup Appointment</h3>
+          <div class="info-box warning mb-20"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--gold)">info</span>The applicant must be <strong>physically present</strong> on the scheduled date. Please bring your valid ID and Application Reference Number.</div>
+          <div class="schedule-grid">
+            <div class="input-group">
+              <label>Select Health Insurance Branch <span style="color:var(--danger)">*</span></label>
+              <div class="select-wrapper"><select class="input-field" id="pickup-branch" onchange="updateScheduleInfo()"><option value="">Select Branch</option><option>Health Insurance – Quezon City (Main)</option><option>Health Insurance – Manila</option><option>Health Insurance – Makati</option><option>Health Insurance – Cebu City</option><option>Health Insurance – Davao City</option><option>Health Insurance – Cagayan de Oro</option><option>Health Insurance – Iloilo City</option><option>Health Insurance – Zamboanga City</option><option>Health Insurance – Bacolod City</option><option>Health Insurance – General Santos</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+            </div>
+            <div class="input-group">
+              <label>Select Date <span style="color:var(--danger)">*</span></label>
+              <input type="date" class="input-field" id="pickup-date" style="color:white" onchange="updateScheduleInfo()" min="">
+            </div>
+          </div>
+          <div style="margin-top:16px">
+            <label style="font-size:0.83rem;font-weight:600;color:var(--text-soft);display:block;margin-bottom:10px">Select Time Slot <span style="color:var(--danger)">*</span></label>
+            <div class="time-slots">
+              <div class="time-slot" onclick="selectTime(this,'8:00 AM')">8:00 AM</div>
+              <div class="time-slot" onclick="selectTime(this,'9:00 AM')">9:00 AM</div>
+              <div class="time-slot" onclick="selectTime(this,'10:00 AM')">10:00 AM</div>
+              <div class="time-slot" onclick="selectTime(this,'11:00 AM')">11:00 AM</div>
+              <div class="time-slot full" onclick="">12:00 PM</div>
+              <div class="time-slot" onclick="selectTime(this,'1:00 PM')">1:00 PM</div>
+              <div class="time-slot" onclick="selectTime(this,'2:00 PM')">2:00 PM</div>
+              <div class="time-slot" onclick="selectTime(this,'3:00 PM')">3:00 PM</div>
+            </div>
+            <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px">⬛ Grayed-out slots are fully booked. Office hours: 8:00 AM – 4:00 PM, Monday–Friday only.</p>
+          </div>
+          <input type="hidden" id="selected-time">
+          <input type="hidden" id="pickup-person">
+ 
+          <!-- Who is picking up -->
+          <div style="margin-top:20px">
+            <div class="input-group">
+              <label>Who Will Claim the ID? <span style="color:var(--danger)">*</span></label>
+              <div class="select-wrapper"><select class="input-field" id="claimer-type" onchange="toggleRepresentativeFields()"><option value="">Select</option><option value="self">The Applicant (Self)</option><option value="rep">Authorized Representative</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+            </div>
+            <div id="rep-fields" class="hidden" style="margin-top:14px;display:flex;flex-direction:column;gap:14px">
+              <div class="info-box warning"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--gold)">warning</span>A notarized <strong>Special Power of Attorney (SPA)</strong> is required for authorized representatives. The representative must also bring their own valid ID.</div>
+              <div class="form-row">
+                <div class="input-group"><label>Representative's Full Name *</label><input type="text" class="input-field" id="rep-name" placeholder="Full Name"></div>
+                <div class="input-group"><label>Relationship to Applicant *</label><input type="text" class="input-field" id="rep-relation" placeholder="e.g., Spouse, Parent, Sibling"></div>
+              </div>
+              <div class="input-group"><label>Representative's Contact Number *</label><input type="tel" class="input-field" id="rep-contact" placeholder="09XXXXXXXXX" maxlength="11"></div>
+            </div>
+          </div>
+ 
+          <!-- Schedule Summary -->
+          <div class="schedule-info-card mt-24" id="schedule-summary" style="display:none">
+            <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">📅 Your Appointment Summary</div>
+            <div class="schedule-info-row">
+              <div class="ico" style="background:rgba(59,130,246,0.12);color:var(--accent)"><span class="material-symbols-rounded" style="font-size:18px">location_on</span></div>
+              <div><div class="lbl">Branch</div><div class="val" id="sum-branch">—</div></div>
+            </div>
+            <div class="schedule-info-row">
+              <div class="ico" style="background:rgba(16,185,129,0.12);color:var(--success)"><span class="material-symbols-rounded" style="font-size:18px">calendar_today</span></div>
+              <div><div class="lbl">Date</div><div class="val" id="sum-date">—</div></div>
+            </div>
+            <div class="schedule-info-row">
+              <div class="ico" style="background:rgba(245,158,11,0.12);color:var(--gold)"><span class="material-symbols-rounded" style="font-size:18px">schedule</span></div>
+              <div><div class="lbl">Time</div><div class="val" id="sum-time">—</div></div>
+            </div>
+            <div class="schedule-info-row">
+              <div class="ico" style="background:rgba(109,40,217,0.12);color:#A78BFA"><span class="material-symbols-rounded" style="font-size:18px">person</span></div>
+              <div><div class="lbl">Claimant</div><div class="val" id="sum-claimer">—</div></div>
+            </div>
+          </div>
+        </div>
