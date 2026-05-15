@@ -1,0 +1,78 @@
+<div id="customization-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>🎨 Content & Portal Customization</h1>
+      <p>Manage announcements, RBAC, and audit logs</p>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>📢 Announcement Editor</h3>
+          <button class="btn btn-sm btn-primary" onclick="openAnnouncementModal()"><span class="material-symbols-rounded" style="font-size:16px">add</span> New</button>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px">
+          <div style="padding:12px;background:var(--surface-2);border-radius:8px;border-left:3px solid var(--accent)">
+            <div style="font-weight:600;margin-bottom:4px">System Maintenance Notice</div>
+            <div style="font-size:0.85rem;color:var(--text-soft)">May 15-16, 2026 - 10 PM to 6 AM</div>
+            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px">Published</div>
+          </div>
+          <div style="padding:12px;background:var(--surface-2);border-radius:8px;border-left:3px solid var(--gold)">
+            <div style="font-weight:600;margin-bottom:4px">New Bronze Plan Available</div>
+            <div style="font-size:0.85rem;color:var(--text-soft)">Extended coverage for senior citizens</div>
+            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px">Published</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>👥 Role-Based Access Control</h3>
+          <button class="btn btn-sm btn-primary" onclick="openRoleModal()"><span class="material-symbols-rounded" style="font-size:16px">add</span> New Role</button>
+        </div>
+        <div style="padding:24px;display:flex;flex-direction:column;gap:12px">
+          <div style="padding:12px;background:var(--surface-2);border-radius:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:600;margin-bottom:2px">Global Admin</div>
+                <div style="font-size:0.78rem;color:var(--text-muted)">3 users • Full access</div>
+              </div>
+              <button class="btn btn-sm" style="padding:4px 8px"><span class="material-symbols-rounded" style="font-size:16px">edit</span></button>
+            </div>
+          </div>
+          <div style="padding:12px;background:var(--surface-2);border-radius:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:600;margin-bottom:2px">Finance Reviewer</div>
+                <div style="font-size:0.78rem;color:var(--text-muted)">5 users • Revenue & payments</div>
+              </div>
+              <button class="btn btn-sm" style="padding:4px 8px"><span class="material-symbols-rounded" style="font-size:16px">edit</span></button>
+            </div>
+          </div>
+          <div style="padding:12px;background:var(--surface-2);border-radius:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div style="font-weight:600;margin-bottom:2px">Support Staff</div>
+                <div style="font-size:0.78rem;color:var(--text-muted)">8 users • User support</div>
+              </div>
+              <button class="btn btn-sm" style="padding:4px 8px"><span class="material-symbols-rounded" style="font-size:16px">edit</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>🔐 Audit Logs</h3>
+        <input type="text" class="input-field" placeholder="Search logs..." id="audit-search" style="width:200px;padding:8px 12px;font-size:0.85rem" oninput="filterAuditLogs()">
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table" id="audit-table">
+          <thead><tr><th>Timestamp</th><th>Admin</th><th>Action</th><th>Target</th><th>Status</th></tr></thead>
+          <tbody id="audit-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
