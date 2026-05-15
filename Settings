@@ -1,0 +1,73 @@
+<div id="settings-page" class="page">
+  <div class="container-sm" style="padding-top:32px;padding-bottom:60px">
+    <div class="page-header">
+      <h1>Account Settings</h1>
+      <p>Manage your Health Insurance portal account information</p>
+    </div>
+    <div class="settings-tabs">
+      <button class="settings-tab active" onclick="switchTab('profile',this)"><span class="material-symbols-rounded" style="font-size:18px">person</span> Profile</button>
+      <button class="settings-tab" onclick="switchTab('security',this)"><span class="material-symbols-rounded" style="font-size:18px">lock</span> Security</button>
+      <button class="settings-tab" onclick="switchTab('notifications',this)"><span class="material-symbols-rounded" style="font-size:18px">notifications</span> Notifications</button>
+    </div>
+    <!-- Profile -->
+    <div id="tab-profile" class="settings-panel active">
+      <div class="settings-card">
+        <h3>Profile Information</h3>
+        <div class="desc">Update your personal details for your Health Insurance account</div>
+        <div class="avatar-section">
+          <div class="big-avatar" id="settings-avatar">JD</div>
+          <div><button class="btn btn-ghost btn-sm">Change Photo</button><p style="font-size:0.78rem;color:var(--text-muted);margin-top:6px">JPG or PNG (max 2MB)</p></div>
+        </div>
+        <div class="form-row mb-16">
+          <div class="input-group"><label>First Name</label><input type="text" class="input-field" id="set-fname" value="Juan"></div>
+          <div class="input-group"><label>Last Name</label><input type="text" class="input-field" id="set-lname" value="Dela Cruz"></div>
+        </div>
+        <div class="form-row mb-16">
+          <div class="input-group"><label>Email Address</label><input type="email" class="input-field" id="set-email" value="juan@email.com"></div>
+          <div class="input-group"><label>Contact Number</label><input type="tel" class="input-field" id="set-contact" value="+63 912 345 6789"></div>
+        </div>
+        <div class="form-row">
+          <div class="input-group"><label>Date of Birth</label><input type="date" class="input-field" id="set-dob" value="1990-05-15"></div>
+          <div class="input-group"><label>Gender</label><div class="select-wrapper"><select class="input-field" id="set-gender"><option selected>Male</option><option>Female</option><option>Prefer not to say</option></select><span class="material-symbols-rounded chevron">expand_more</span></div></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:12px">
+        <button class="btn btn-ghost">Cancel</button>
+        <button class="btn btn-primary" onclick="saveProfile()"><span class="material-symbols-rounded" style="font-size:16px">save</span> Save Changes</button>
+      </div>
+    </div>
+    <!-- Security -->
+    <div id="tab-security" class="settings-panel">
+      <div class="settings-card">
+        <h3>Change Password</h3>
+        <div class="desc">Update your password to keep your account secure</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="input-group"><label>Current Password</label><input type="password" class="input-field" id="set-old-password" placeholder="Enter current password"></div>
+          <div class="input-group"><label>New Password</label><input type="password" class="input-field" id="set-new-password" placeholder="Enter new password"></div>
+          <div class="input-group"><label>Confirm New Password</label><input type="password" class="input-field" id="set-confirm-password" placeholder="Confirm new password"></div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:20px">
+          <button class="btn btn-primary" onclick="changePassword()"><span class="material-symbols-rounded" style="font-size:16px">lock_reset</span> Update Password</button>
+        </div>
+      </div>
+      <div class="settings-card">
+        <h3>Danger Zone</h3>
+        <div class="desc">Permanently delete your account and all associated data</div>
+        <div style="padding:20px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius-sm)">
+          <p style="color:var(--text-soft);font-size:0.87rem;margin-bottom:16px">This action is irreversible. Your application history will also be deleted.</p>
+          <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--danger);border:1px solid rgba(239,68,68,0.2)" onclick="deleteAccount()"><span class="material-symbols-rounded" style="font-size:16px">delete</span> Delete Account</button>
+        </div>
+      </div>
+    </div>
+    <!-- Notifications -->
+    <div id="tab-notifications" class="settings-panel">
+      <div class="settings-card">
+        <h3>Notification Preferences</h3>
+        <div class="desc">Choose how you receive updates about your applications</div>
+        <div class="notif-row"><div class="info"><h4>Email Notifications</h4><p>Application status updates via email</p></div><div class="toggle-switch"><input type="checkbox" id="notif-email" checked><label for="notif-email"></label></div></div>
+        <div class="notif-row"><div class="info"><h4>SMS Notifications</h4><p>Text message for appointment reminders</p></div><div class="toggle-switch"><input type="checkbox" id="notif-sms" checked><label for="notif-sms"></label></div></div>
+        <div class="notif-row"><div class="info"><h4>Approval Alerts</h4><p>Immediate notification when your application is approved</p></div><div class="toggle-switch"><input type="checkbox" id="notif-approval" checked><label for="notif-approval"></label></div></div>
+      </div>
+    </div>
+  </div>
+</div>
