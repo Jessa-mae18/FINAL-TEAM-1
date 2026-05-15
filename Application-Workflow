@@ -1,0 +1,43 @@
+<div id="workflow-controls-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>⚙️ Application Workflow Controls</h1>
+      <p>Manage review queue, application status, and communication logs</p>
+    </div>
+    
+    <div class="admin-table-card" style="margin-bottom:24px">
+      <div class="admin-table-header">
+        <h3>📋 Application Review Queue</h3>
+        <div style="display:flex;gap:10px">
+          <select class="input-field" id="queue-filter" style="padding:8px 12px;font-size:0.85rem;width:150px" onchange="filterReviewQueue()">
+            <option value="">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="review">Under Review</option>
+            <option value="docs">Awaiting Documents</option>
+          </select>
+          <input type="text" class="input-field" placeholder="Search..." style="width:180px;padding:8px 12px;font-size:0.85rem" id="queue-search" oninput="filterReviewQueue()">
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table" id="queue-table">
+          <thead><tr><th>App ID</th><th>Applicant</th><th>Submitted</th><th>Current Status</th><th>Days Pending</th><th>Actions</th></tr></thead>
+          <tbody id="queue-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>💬 Communication Logs</h3>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table" id="comms-table">
+          <thead><tr><th>Date</th><th>Applicant</th><th>Type</th><th>Subject</th><th>Status</th></tr></thead>
+          <tbody id="comms-tbody">
+            <tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-muted)">No communication logs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
