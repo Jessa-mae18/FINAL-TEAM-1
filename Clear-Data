@@ -1,0 +1,20 @@
+<div class="modal-overlay" id="clear-all-data-modal">
+  <div class="modal-content" style="max-width:480px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px;color:var(--danger)">warning</span> Confirm Data Deletion</h2>
+      <button class="modal-close-btn" onclick="closeClearAllDataModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="info-box warning mb-16"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--gold)">warning</span>This will permanently delete all enrollment applications. This cannot be undone.</div>
+      <div style="margin-bottom:20px">
+        <label style="font-size:0.9rem;color:var(--text);margin-bottom:8px;display:block">Type <strong style="color:var(--danger)">CONFIRM</strong> to proceed:</label>
+        <input type="text" id="clear-confirm-input" class="input-field" placeholder="Type CONFIRM...">
+        <p id="confirm-error" style="color:var(--danger);font-size:0.83rem;margin-top:8px;display:none">Please type CONFIRM exactly to proceed.</p>
+      </div>
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-ghost" style="flex:1;justify-content:center" onclick="closeClearAllDataModal()">Cancel</button>
+        <button class="btn" style="flex:1;background:var(--danger);color:white;font-weight:600;justify-content:center" onclick="executeClearAllData()">Delete All</button>
+      </div>
+    </div>
+  </div>
+</div>
