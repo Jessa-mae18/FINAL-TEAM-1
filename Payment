@@ -1,0 +1,98 @@
+<div class="form-section" id="payment-section">
+          <h3><span class="material-symbols-rounded">payments</span> Payment of Contribution</h3>
+          <!-- ID Validation for Payment -->
+          <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.2);border-radius:var(--radius-sm);padding:16px;margin-bottom:20px">
+            <div style="font-size:0.87rem;font-weight:700;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:6px"><span class="material-symbols-rounded" style="font-size:18px">badge</span> ID Validation Required for Payment</div>
+            <div class="form-row">
+              <div class="input-group">
+                <label>ID Type <span style="color:var(--danger)">*</span></label>
+                <div class="select-wrapper"><select class="input-field" id="payment-id-type"><option value="">Select ID Type</option><option>PhilSys National ID</option><option>Philippine Passport</option><option>Driver's License (LTO)</option><option>SSS ID</option><option>GSIS ID</option><option>Voter's ID</option><option>PRC ID</option><option>Postal ID</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+              </div>
+              <div class="input-group">
+                <label>ID Number <span style="color:var(--danger)">*</span></label>
+                <input type="text" class="input-field" id="payment-id-number" placeholder="Enter your ID number">
+              </div>
+            </div>
+
+          </div>
+          <div class="info-box success mb-20" id="free-notice" style="display:none">
+            <span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--success)">check_circle</span>
+            <strong>Basic Plan members do not pay.</strong> Your coverage is fully subsidized by the Philippine government under RA 11223.
+          </div>
+          <div id="payment-required-section">
+            <div class="payment-summary mb-20">
+              <div class="payment-summary-row"><span style="color:var(--text-soft)">Selected Plan</span><span id="pay-plan-name" style="font-weight:600">Standard Plan</span></div>
+              <div class="payment-summary-row"><span style="color:var(--text-soft)">First Month Contribution</span><span id="pay-amount" style="font-weight:600;color:var(--accent)">₱300.00</span></div>
+              <div class="payment-summary-row"><span style="color:var(--text-soft)">Processing Fee</span><span style="color:var(--text-muted)">₱0.00 (Waived)</span></div>
+              <div class="payment-summary-row total"><span>Total Due Now</span><span id="pay-total" class="gradient-text">₱300.00</span></div>
+            </div>
+            <div style="font-size:0.85rem;font-weight:700;color:var(--text-soft);margin-bottom:12px">Choose Payment Method</div>
+            <div class="payment-methods">
+              <div class="payment-method" onclick="selectPayment(this,'gcash')">
+                <div class="payment-method-icon" style="background:rgba(59,130,246,0.12)">📱</div>
+                <div class="payment-method-info"><h4>GCash</h4><p>Pay via GCash e-wallet</p></div>
+                <div style="margin-left:auto"><input type="radio" name="payment" value="gcash" style="accent-color:var(--accent)"></div>
+              </div>
+              <div class="payment-method" onclick="selectPayment(this,'maya')">
+                <div class="payment-method-icon" style="background:rgba(16,185,129,0.12)">💚</div>
+                <div class="payment-method-info"><h4>Maya (PayMaya)</h4><p>Pay via Maya e-wallet</p></div>
+                <div style="margin-left:auto"><input type="radio" name="payment" value="maya" style="accent-color:var(--accent)"></div>
+              </div>
+              <div class="payment-method" onclick="selectPayment(this,'card')">
+                <div class="payment-method-icon" style="background:rgba(245,158,11,0.12)">💳</div>
+                <div class="payment-method-info"><h4>Credit / Debit Card</h4><p>Visa, Mastercard, JCB accepted</p></div>
+                <div style="margin-left:auto"><input type="radio" name="payment" value="card" style="accent-color:var(--accent)"></div>
+              </div>
+              <div class="payment-method" onclick="selectPayment(this,'otc')">
+                <div class="payment-method-icon" style="background:rgba(100,100,100,0.12)">🏦</div>
+                <div class="payment-method-info"><h4>Over-the-Counter</h4><p>Pay at branch on pickup day</p></div>
+                <div style="margin-left:auto"><input type="radio" name="payment" value="otc" style="accent-color:var(--accent)"></div>
+              </div>
+            </div>
+            <!-- Payment Details (GCash/Maya) -->
+            <div class="payment-details" id="ewallet-detail" style="display:none">
+              <div style="font-size:0.87rem;color:var(--text-soft);margin-bottom:12px">Enter your e-wallet reference number after payment:</div>
+              <div class="input-group"><label>Reference Number <span style="color:var(--danger)">*</span></label><input type="text" class="input-field" id="payment-ref" placeholder="e.g. 12345678901"></div>
+            </div>
+            <!-- Card fields -->
+            <div class="payment-details" id="card-detail" style="display:none">
+              <div class="form-row mb-14">
+                <div class="input-group" style="grid-column:1/-1"><label>Card Number *</label><input type="text" class="input-field" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19"></div>
+              </div>
+              <div class="form-row">
+                <div class="input-group"><label>Expiry Date *</label><input type="text" class="input-field" id="card-expiry" placeholder="MM/YY" maxlength="5"></div>
+                <div class="input-group"><label>CVV *</label><input type="password" class="input-field" id="card-cvv" placeholder="***" maxlength="4"></div>
+              </div>
+            </div>
+            <input type="hidden" id="selected-payment-method">
+          </div>
+        </div>
+ 
+        <!-- Agreement -->
+        <div class="form-section">
+          <h3><span class="material-symbols-rounded">gavel</span> Declaration & Agreement</h3>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <label class="checkbox-label">
+              <input type="checkbox" id="agree-1" required>
+              I certify that all information provided is true, accurate, and complete to the best of my knowledge. I understand that providing false information may result in cancellation of enrollment and legal action.
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="agree-2" required>
+              I consent to the collection and processing of my personal data by Health Insurance in accordance with Republic Act 10173 (Data Privacy Act of 2012) and Republic Act 11223 (Universal Health Care Act).
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="agree-3" required>
+              I have read and understood the requirements for my selected plan, and I confirm that I meet the eligibility criteria.
+            </label>
+          </div>
+          <div id="agree-error" style="color:var(--danger);font-size:0.83rem;margin-top:10px;display:none"><span class="material-symbols-rounded" style="font-size:16px;vertical-align:middle">error</span> Please agree to all terms to proceed.</div>
+        </div>
+ 
+        <div class="flex gap-12" style="justify-content:flex-end">
+          <button class="btn btn-ghost" onclick="goToStep(3)"><span class="material-symbols-rounded">arrow_back</span> Previous</button>
+          <button class="btn btn-primary btn-lg" onclick="submitApplication()"><span class="material-symbols-rounded">send</span> Submit Application</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
