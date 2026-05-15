@@ -1,0 +1,86 @@
+<div id="login-page" class="page">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div style="margin-bottom:48px">
+        <div class="nav-logo" style="cursor:default;margin-bottom:32px">❤️ <span style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700">PhilHealth ePortal</span></div>
+        <h2>Your Health is<br><span class="gradient-text">Our Priority</span></h2>
+        <p>Enroll in the national health insurance program fully online. Choose your plan, submit requirements, and schedule your ID pickup — from anywhere.</p>
+      </div>
+      <div class="auth-features">
+        <div class="auth-feature"><div class="check"><span class="material-symbols-rounded" style="font-size:16px">lock</span></div><span>Encrypted & secure data submission</span></div>
+        <div class="auth-feature"><div class="check"><span class="material-symbols-rounded" style="font-size:16px">schedule</span></div><span>24/7 enrollment access</span></div>
+        <div class="auth-feature"><div class="check"><span class="material-symbols-rounded" style="font-size:16px">notifications</span></div><span>Real-time application status updates</span></div>
+        <div class="auth-feature"><div class="check"><span class="material-symbols-rounded" style="font-size:16px">payments</span></div><span>Multiple secure payment methods</span></div>
+        <div class="auth-feature"><div class="check"><span class="material-symbols-rounded" style="font-size:16px">calendar_month</span></div><span>Choose your own pickup schedule</span></div>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-form-box">
+        <div class="auth-form-header">
+          <h2 id="auth-title">Welcome Back</h2>
+          <p id="auth-subtitle">Sign in to your Health Insurance citizen account</p>
+        </div>
+        <form class="auth-form" id="auth-form" onsubmit="handleAuthSubmit(event)">
+          <div id="reg-fields" class="hidden" style="display:flex;flex-direction:column;gap:14px">
+            <div class="input-group"><label>First Name *</label><input type="text" class="input-field" id="reg-fname" placeholder="First Name"></div>
+            <div class="input-group"><label>Middle Name <span style="color:var(--text-muted);font-size:0.78rem">(Optional)</span></label><input type="text" class="input-field" id="reg-mname" placeholder="Middle Name (leave blank if none)"></div>
+            <div class="input-group"><label>Last Name *</label><input type="text" class="input-field" id="reg-lname" placeholder="Last Name"></div>
+            <div class="input-group"><label>Contact Number *</label><input type="tel" class="input-field" id="reg-phone" placeholder="09XXXXXXXXX" maxlength="11"></div>
+          </div>
+          <div class="input-group"><label>Email Address *</label><input type="email" class="input-field" id="auth-email" placeholder="name@email.com" required autocomplete="off"></div>
+          <div class="input-group">
+            <label>Password *</label>
+            <div class="password-wrapper">
+              <input type="password" class="input-field" id="auth-password" placeholder="Enter password" required>
+              <button type="button" class="password-toggle" onclick="togglePasswordVisibility()"><span class="material-symbols-rounded" id="password-icon">visibility_off</span></button>
+            </div>
+          </div>
+          <div id="login-options" class="flex items-center justify-between" style="font-size:0.85rem">
+            <label class="checkbox-label"><input type="checkbox" id="remember-me"> Remember me</label>
+            <a href="#" style="color:var(--accent);font-size:0.85rem;font-weight:600">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="auth-submit-btn">Sign In</button>
+          <div class="divider">or</div>
+          <button type="button" class="btn btn-ghost btn-block" onclick="handleSSO()">
+            <span class="material-symbols-rounded">verified_user</span> Sign in with PhilSys ID
+          </button>
+        </form>
+        <div class="auth-toggle">
+          <span id="auth-toggle-text">Don't have an account?</span>
+          <button onclick="toggleAuthMode()" id="auth-toggle-btn">Create Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OTP Verification Modal -->
+<div class="modal-overlay" id="otp-modal">
+  <div class="modal-content" style="max-width:440px">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">verified</span> Email Verification</h2>
+    </div>
+    <div class="modal-body" style="text-align:center">
+      <div style="width:72px;height:72px;background:rgba(59,130,246,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+        <span class="material-symbols-rounded" style="font-size:36px;color:var(--accent)">mark_email_read</span>
+      </div>
+      <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:8px">Check Your Email</h3>
+      <p style="color:var(--text-soft);font-size:0.87rem;margin-bottom:24px">We sent a 6-digit verification code to <strong id="otp-email-display" style="color:var(--text)">your email</strong>. Enter it below to continue.</p>
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px">
+        <input type="text" class="input-field otp-input" id="otp-1" maxlength="1" style="width:48px;height:56px;text-align:center;font-size:1.4rem;font-weight:700;padding:0" oninput="otpInput(this,2)" onkeydown="otpBack(this,event,1)">
+        <input type="text" class="input-field otp-input" id="otp-2" maxlength="1" style="width:48px;height:56px;text-align:center;font-size:1.4rem;font-weight:700;padding:0" oninput="otpInput(this,3)" onkeydown="otpBack(this,event,1)">
+        <input type="text" class="input-field otp-input" id="otp-3" maxlength="1" style="width:48px;height:56px;text-align:center;font-size:1.4rem;font-weight:700;padding:0" oninput="otpInput(this,4)" onkeydown="otpBack(this,event,2)">
+        <input type="text" class="input-field otp-input" id="otp-4" maxlength="1" style="width:48px;height:56px;text-align:center;font-size:1.4rem;font-weight:700;padding:0" oninput="otpInput(this,5)" onkeydown="otpBack(this,event,3)">
+        <input type="text" class="input-field otp-input" id="otp-5" maxlength="1" style="width:48px;height:56px;text-align:center;font-size:1.4rem;font-weight:700;padding:0" oninput="otpInput(this,6)" onkeydown="otpBack(this,event,4)">
+        <input type="text" class="input-field otp-input" id="otp-6" maxlength="1" style="width:48px;height:56px;text-align:center;font-size:1.4rem;font-weight:700;padding:0" oninput="otpInput(this,0)" onkeydown="otpBack(this,event,5)">
+      </div>
+      <p id="otp-error" style="color:var(--danger);font-size:0.83rem;margin-bottom:12px;display:none">Incorrect code. Please try again.</p>
+      <div style="font-size:0.83rem;color:var(--text-muted);margin-bottom:20px">Didn't receive it? <button onclick="resendOTP()" style="background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;font-size:0.83rem">Resend Code</button></div>
+      <div class="info-box info" style="text-align:left;font-size:0.82rem"><span class="material-symbols-rounded" style="font-size:16px;color:var(--accent);flex-shrink:0">info</span> For demo purposes, the code is <strong style="color:var(--accent);font-size:1rem;letter-spacing:2px" id="otp-demo-hint"></strong></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeOTPModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="verifyOTP()"><span class="material-symbols-rounded" style="font-size:16px">verified</span> Verify & Continue</button>
+    </div>
+  </div>
+</div>
