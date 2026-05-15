@@ -1,0 +1,132 @@
+<div id="process-page" class="page">
+  <div style="padding-top:var(--nav-h);padding-bottom:60px;position:relative;z-index:1">
+    <div style="padding:60px 0 40px;background:rgba(7,18,46,0.6);margin-bottom:40px">
+      <div class="container">
+        <div class="section-eyebrow">Application Guide</div>
+        <div class="section-title">How to Apply for<br><span class="gradient-text">Health Insurance Coverage</span></div>
+        <div class="section-subtitle">A step-by-step guide to enrolling in your chosen Health Insurance plan through this portal.</div>
+      </div>
+    </div>
+ 
+    <div class="container">
+      <!-- Steps -->
+      <div style="margin-bottom:50px">
+        <div class="section-title mb-24" style="font-size:1.5rem">Application Steps</div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="flex-shrink:0;width:48px;height:48px;background:var(--gradient-main);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:#fff">1</div>
+            <div class="form-section" style="flex:1;margin-bottom:0">
+              <h3 style="color:var(--text);margin-bottom:8px">Create Your Portal Account</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Register using your full legal name, valid email address, and a secure password. You'll need to verify your email before proceeding. Your account is free and permanent — it's used to track all your applications.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="flex-shrink:0;width:48px;height:48px;background:var(--gradient-main);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:#fff">2</div>
+            <div class="form-section" style="flex:1;margin-bottom:0">
+              <h3 style="color:var(--text);margin-bottom:8px">Select Your Insurance Plan</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Navigate to "Insurance Plans" and select the plan that matches your membership category: Basic (indigent), Standard (employed/voluntary), or Premium Plus (OFW/high-income). Each plan has different requirements and benefits.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="flex-shrink:0;width:48px;height:48px;background:var(--gradient-main);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:#fff">3</div>
+            <div class="form-section" style="flex:1;margin-bottom:0">
+              <h3 style="color:var(--text);margin-bottom:8px">Fill Out the Application Form</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7;margin-bottom:12px">Complete all 4 steps of the application: Personal Information → Address → Documents → Schedule & Payment. Make sure all information matches your official government ID to avoid processing delays.</p>
+              <div class="info-box info"><span class="material-symbols-rounded" style="font-size:18px;color:var(--accent);flex-shrink:0">info</span> All fields marked with <strong style="color:var(--danger)">*</strong> are required. Incorrect information may result in rejection.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="flex-shrink:0;width:48px;height:48px;background:var(--gradient-main);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:#fff">4</div>
+            <div class="form-section" style="flex:1;margin-bottom:0">
+              <h3 style="color:var(--text);margin-bottom:8px">Upload Required Documents</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Attach scanned copies or clear photos of your required documents. All documents must be legible. Expired IDs are not accepted. File size limit is 5MB per document (JPG, PNG, or PDF only).</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="flex-shrink:0;width:48px;height:48px;background:var(--gradient-main);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:#fff">5</div>
+            <div class="form-section" style="flex:1;margin-bottom:0">
+              <h3 style="color:var(--text);margin-bottom:8px">Schedule Your Pickup & Pay</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7;margin-bottom:12px">Choose your preferred PhilHealth branch, date, and time slot for ID release. For Standard and Premium plans, pay your first month's contribution online via GCash, Maya, or credit/debit card. Basic members do not pay — coverage is government-funded.</p>
+              <div class="info-box warning"><span class="material-symbols-rounded" style="font-size:18px;color:var(--gold);flex-shrink:0">warning</span> The person named in the application <strong>must be physically present</strong> on the scheduled date. Authorized representatives are allowed only with a notarized Special Power of Attorney (SPA).</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="flex-shrink:0;width:48px;height:48px;background:var(--gradient-green);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:#fff">6</div>
+            <div class="form-section" style="flex:1;margin-bottom:0;border-color:rgba(16,185,129,0.25)">
+              <h3 style="color:var(--success);margin-bottom:8px">Claim Your PhilHealth ID & MDR</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">On your scheduled date and time, visit the selected PhilHealth branch and present: valid government ID + your application reference number. You will receive your PhilHealth Member Data Record (MDR) and physical ID card.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Requirements -->
+      <div style="margin-bottom:50px">
+        <div class="section-title mb-24" style="font-size:1.5rem">Document Requirements by Plan</div>
+        <div class="grid-3">
+          <div class="req-card">
+            <h4>Basic Plan</h4>
+            <ul class="req-list">
+              <li>DSWD Certification of Indigency or 4Ps ID</li>
+              <li>Birth Certificate (PSA copy)</li>
+              <li>Barangay Certificate of Residency</li>
+              <li>Recent 1x1 or 2x2 ID photo</li>
+              <li>PhilSys National ID (if available)</li>
+            </ul>
+          </div>
+          <div class="req-card" style="border-color:rgba(59,130,246,0.25)">
+            <h4>Standard Plan</h4>
+            <ul class="req-list">
+              <li>Valid government-issued ID (non-expired)</li>
+              <li>Proof of address (utility bill / barangay cert.)</li>
+              <li>Certificate of Employment or Business Permit</li>
+              <li>BIR Form 2316 or ITR (for income verification)</li>
+              <li>Recent 2x2 ID photo</li>
+              <li>Birth certificates of dependents (if enrolling)</li>
+            </ul>
+          </div>
+          <div class="req-card" style="border-color:rgba(245,158,11,0.25)">
+            <h4>Premium Plus Plan</h4>
+            <ul class="req-list">
+              <li>Valid government-issued ID</li>
+              <li>OEC (Overseas Employment Certificate) for OFWs</li>
+              <li>Employment contract or payslip</li>
+              <li>Proof of income (₱100,000+/mo for high-earners)</li>
+              <li>Recent 2x2 ID photo</li>
+              <li>Proof of address abroad (for OFWs)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Accepted IDs -->
+      <div class="form-section">
+        <h3><span class="material-symbols-rounded">badge</span> Accepted Government IDs</h3>
+        <div class="grid-2">
+          <ul class="req-list">
+            <li>PhilSys National ID</li>
+            <li>Philippine Passport</li>
+            <li>Driver's License (LTO)</li>
+            <li>SSS / GSIS ID</li>
+            <li>Voter's ID / COMELEC Certificate</li>
+          </ul>
+          <ul class="req-list">
+            <li>PRC Professional ID</li>
+            <li>Postal ID</li>
+            <li>Senior Citizen ID</li>
+            <li>PWD ID</li>
+            <li>Barangay ID with photo and signature</li>
+          </ul>
+        </div>
+        <div class="info-box warning mt-16"><span class="material-symbols-rounded" style="font-size:18px;flex-shrink:0;color:var(--gold)">warning</span>All IDs must be <strong>valid (not expired)</strong> and must bear your photo, signature, and current address. Photocopies must be authenticated.</div>
+      </div>
+ 
+      <div class="text-center" style="margin-top:40px">
+        <button class="btn btn-primary btn-lg" onclick="navigate('plans')">
+          <span class="material-symbols-rounded">health_and_safety</span> Browse Insurance Plans
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
