@@ -1,0 +1,21 @@
+<div id="accounts-page" class="page">
+  <div class="container" style="padding-top:32px;padding-bottom:60px">
+    <div class="page-header">
+      <h1>Member Accounts</h1>
+      <p>Manage registered citizen accounts in this portal</p>
+    </div>
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>👥 All Accounts</h3>
+        <input type="text" class="input-field" id="accounts-search" placeholder="Search accounts..." style="width:220px;padding:8px 12px;font-size:0.85rem" oninput="filterAccountsTable()">
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Email</th><th>Applications</th><th>Registered</th><th>Status</th></tr></thead>
+          <tbody id="accounts-table-body"></tbody>
+        </table>
+        <div id="accounts-empty" class="empty-state hidden"><div class="icon"><span class="material-symbols-rounded" style="font-size:48px">group_off</span></div><h3>No Accounts</h3><p>No member accounts registered yet.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
