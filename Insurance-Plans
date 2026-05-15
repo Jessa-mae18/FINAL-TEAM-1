@@ -1,0 +1,256 @@
+<div id="plans-page" class="page">
+  <div style="padding-top:var(--nav-h);padding-bottom:60px;position:relative;z-index:1">
+    <div style="padding:60px 0 40px;background:linear-gradient(135deg,rgba(59,130,246,0.07) 0%,rgba(109,40,217,0.05) 100%);margin-bottom:40px">
+      <div class="container text-center">
+        <div class="section-eyebrow">Health Insurance Coverage</div>
+        <div class="section-title">All Insurance Plans</div>
+        <div class="section-subtitle" style="margin:0 auto">Compare our plans and choose the coverage that fits your membership category, income, and health needs.</div>
+      </div>
+    </div>
+ 
+    <div class="container">
+      <!-- Plan Cards Full Detail -->
+      <div id="plans-container">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px">
+ 
+          <!-- BASIC -->
+          <div class="plan-card" id="plan-BASIC">
+            <div class="plan-icon" style="background:rgba(16,185,129,0.12);color:var(--success)">🛡️</div>
+            <div class="plan-name">Basic Coverage</div>
+            <div class="plan-tagline">Indigent & Sponsored Members</div>
+            <div class="plan-price">
+              <span class="free-tag text-success">FREE</span>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">Government-subsidized under RA 11223</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div style="margin-bottom:16px">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Who Qualifies</div>
+              <ul class="req-list">
+                <li>Individuals classified as indigent by the DSWD</li>
+                <li>Senior citizens under RA 10645</li>
+                <li>Persons with disabilities (PWDs)</li>
+                <li>Household helpers earning below minimum</li>
+              </ul>
+            </div>
+            <div class="plan-divider"></div>
+            <div style="margin-bottom:16px">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Benefits Included</div>
+              <ul class="plan-features">
+                <li><span class="material-symbols-rounded check">check_circle</span>Inpatient hospital care (up to ₱120,000/year)</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Emergency & accident coverage</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Maternity & newborn care</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>TB-DOTS program coverage</li>
+                <li><span class="material-symbols-rounded cross">remove_circle</span>Outpatient consultations</li>
+                <li><span class="material-symbols-rounded cross">remove_circle</span>Dental & optical</li>
+              </ul>
+            </div>
+            <div class="plan-coverage"><span class="coverage-tag">Inpatient</span><span class="coverage-tag">Emergency</span><span class="coverage-tag">Maternity</span></div>
+            <button class="btn btn-outline btn-block" style="margin-top:20px" onclick="startApplication('BASIC')">Apply for Basic</button>
+          </div>
+ 
+          <!-- STANDARD -->
+          <div class="plan-card popular" id="plan-STANDARD" style="margin-top:-8px">
+            <div class="plan-badge blue">Most Popular</div>
+            <div class="plan-icon" style="background:rgba(59,130,246,0.12);color:var(--accent)">💙</div>
+            <div class="plan-name gradient-text">Standard Plan</div>
+            <div class="plan-tagline">Employed, Self-Employed & Voluntary</div>
+            <div class="plan-price">
+              <span class="amount gradient-text">₱300</span><span class="period">–₱5,000/mo</span>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">3–5% of monthly income (min ₱300)</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div style="margin-bottom:16px">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Who Qualifies</div>
+              <ul class="req-list">
+                <li>Employees (private or government)</li>
+                <li>Self-employed individuals</li>
+                <li>Voluntary members (unemployed / student)</li>
+                <li>Returning OFWs</li>
+              </ul>
+            </div>
+            <div class="plan-divider"></div>
+            <div style="margin-bottom:16px">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Benefits Included</div>
+              <ul class="plan-features">
+                <li><span class="material-symbols-rounded check">check_circle</span>Full inpatient care (up to ₱450,000/year)</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Outpatient consultations & day surgery</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Z-Benefits for serious illnesses</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Dental extractions & eye care</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Up to 5 qualified dependents</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Rehabilitation services</li>
+              </ul>
+            </div>
+            <div class="plan-coverage"><span class="coverage-tag">Inpatient</span><span class="coverage-tag">Outpatient</span><span class="coverage-tag">Dental</span><span class="coverage-tag">Dependents</span></div>
+            <button class="btn btn-primary btn-block" style="margin-top:20px" onclick="startApplication('STANDARD')">Apply Now</button>
+          </div>
+ 
+          <!-- PREMIUM -->
+          <div class="plan-card premium" id="plan-PREMIUM">
+            <div class="plan-badge gold">Premium</div>
+            <div class="plan-icon" style="background:rgba(245,158,11,0.12);color:var(--gold)">⭐</div>
+            <div class="plan-name gold-text">Premium Plus</div>
+            <div class="plan-tagline">OFWs & High-Income Earners</div>
+            <div class="plan-price">
+              <span class="amount gold-text">₱2,400</span><span class="period">/month</span>
+              <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">₱28,800/year — highest tier coverage</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div style="margin-bottom:16px">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Who Qualifies</div>
+              <ul class="req-list">
+                <li>OFWs (active deployment abroad)</li>
+                <li>Employees earning ₱100,000+/month</li>
+                <li>Business owners & professionals</li>
+                <li>Expatriates on long-term visas</li>
+              </ul>
+            </div>
+            <div class="plan-divider"></div>
+            <div style="margin-bottom:16px">
+              <div style="font-size:0.78rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Benefits Included</div>
+              <ul class="plan-features">
+                <li><span class="material-symbols-rounded check">check_circle</span>All Standard Plan benefits</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Private room accommodation</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>International emergency coverage</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Medical evacuation</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Priority application & ID processing</li>
+                <li><span class="material-symbols-rounded check">check_circle</span>Unlimited outpatient visits</li>
+              </ul>
+            </div>
+            <div class="plan-coverage"><span class="coverage-tag" style="background:rgba(245,158,11,0.12);color:var(--gold)">All Benefits</span><span class="coverage-tag" style="background:rgba(245,158,11,0.12);color:var(--gold)">International</span><span class="coverage-tag" style="background:rgba(245,158,11,0.12);color:var(--gold)">Priority</span></div>
+            <button class="btn btn-gold btn-block" style="margin-top:20px" onclick="startApplication('PREMIUM')">Apply Now</button>
+          </div>
+        </div>
+ 
+        <!-- Comparison Table -->
+        <div class="admin-table-card" style="margin-bottom:40px">
+          <div class="admin-table-header">
+            <h3>📊 Plan Comparison</h3>
+            <span class="badge badge-info">Health Insurance 2026</span>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Basic</th>
+                  <th>Standard</th>
+                  <th>Premium Plus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Monthly Contribution</td><td style="color:var(--success)">FREE (Gov't)</td><td>₱300 – ₱5,000</td><td style="color:var(--gold)">₱2,400</td></tr>
+                <tr><td>Annual Coverage Limit</td><td>₱120,000</td><td>₱450,000</td><td style="color:var(--gold)">Unlimited</td></tr>
+                <tr><td>Inpatient Coverage</td><td>✓</td><td>✓</td><td>✓ (Private Room)</td></tr>
+                <tr><td>Outpatient Coverage</td><td>✗</td><td>✓</td><td>✓ (Unlimited)</td></tr>
+                <tr><td>Dependents Covered</td><td>Up to 3</td><td>Up to 5</td><td>Unlimited</td></tr>
+                <tr><td>Dental & Eye Care</td><td>✗</td><td>Basic</td><td>Comprehensive</td></tr>
+                <tr><td>International Emergency</td><td>✗</td><td>✗</td><td>✓</td></tr>
+                <tr><td>Priority Processing</td><td>✗</td><td>✗</td><td>✓ (Same-day)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+ 
+        <!-- FAQ -->
+        <div style="margin-bottom:40px">
+          <div class="section-title mb-16" style="font-size:1.5rem">Frequently Asked Questions</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="form-section" style="margin-bottom:0">
+              <h3 style="font-size:0.97rem;color:var(--text);margin-bottom:10px"><span class="material-symbols-rounded" style="color:var(--gold)">help</span> Can I upgrade my plan later?</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Yes. Members may upgrade from Basic to Standard or from Standard to Premium Plus by submitting a Plan Change Request form. Changes take effect the following quarter. <button onclick="openPlanUpgradeModal()" style="background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;font-size:0.87rem">Learn the upgrade process →</button></p>
+            </div>
+            <div class="form-section" style="margin-bottom:0">
+              <h3 style="font-size:0.97rem;color:var(--text);margin-bottom:10px"><span class="material-symbols-rounded" style="color:var(--gold)">help</span> When does coverage start?</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Coverage begins on the 1st day of the month following your enrollment approval and payment of the first contribution (for Standard and Premium). Basic Coverage starts upon approval of indigent status.</p>
+            </div>
+            <div class="form-section" style="margin-bottom:0">
+              <h3 style="font-size:0.97rem;color:var(--text);margin-bottom:10px"><span class="material-symbols-rounded" style="color:var(--gold)">help</span> Can I add my family as dependents?</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Yes. Dependents include legal spouse, unmarried children below 21 years old, and parents who are 60 or older with no other source of income. Dependents must be registered through the PMRF. <button onclick="openFamilyPayerModal()" style="background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;font-size:0.87rem">See family coverage details →</button></p>
+            </div>
+            <div class="form-section" style="margin-bottom:0">
+              <h3 style="font-size:0.97rem;color:var(--text);margin-bottom:10px"><span class="material-symbols-rounded" style="color:var(--gold)">help</span> How long do I pay? When does coverage end?</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">You pay contributions as long as you are an active member. Under the Universal Health Care Act (RA 11223), <strong style="color:var(--text)">all Filipinos are automatically covered for life</strong> — contributions stop upon retirement (age 60 with 120 months paid), after which you are a <em>lifetime member</em> with continued coverage at no cost. Your insurance card shows your active status and coverage period.</p>
+            </div>
+            <div class="form-section" style="margin-bottom:0">
+              <h3 style="font-size:0.97rem;color:var(--text);margin-bottom:10px"><span class="material-symbols-rounded" style="color:var(--gold)">help</span> How will I know if my insurance covers my emergency?</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Present your PhilHealth ID or MDR at any <strong style="color:var(--text)">PhilHealth-accredited hospital</strong> — they can verify your coverage instantly. You may also check your coverage via this portal under "My Applications" → "View Coverage Details." For emergencies at non-accredited facilities, keep your receipts for reimbursement. <button onclick="openBeneficiariesModal()" style="background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;font-size:0.87rem">See full claims guide →</button></p>
+            </div>
+            <div class="form-section" style="margin-bottom:0">
+              <h3 style="font-size:0.97rem;color:var(--text);margin-bottom:10px"><span class="material-symbols-rounded" style="color:var(--gold)">help</span> Who are the beneficiaries of my health insurance?</h3>
+              <p style="font-size:0.87rem;color:var(--text-soft);line-height:1.7">Your registered dependents (spouse, children, parents) are your beneficiaries — they are covered under your plan. Upon your death, they automatically become independent PhilHealth members. <button onclick="openBeneficiariesModal()" style="background:none;border:none;color:var(--accent);font-weight:600;cursor:pointer;font-size:0.87rem">View beneficiaries guide →</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="plans-management-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>📋 Insurance Plan & Services Management</h1>
+      <p>Configure plans, manage requirements, and control coverage tags</p>
+    </div>
+    
+    <div class="admin-table-card" style="margin-bottom:24px">
+      <div class="admin-table-header">
+        <h3>💎 Plan Configuration</h3>
+        <button class="btn btn-sm btn-primary" onclick="openNewPlanModal()"><span class="material-symbols-rounded" style="font-size:16px">add</span> New Plan</button>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table" id="plans-table">
+          <thead><tr><th>Plan Name</th><th>Price (Monthly)</th><th>Coverage Limit</th><th>Status</th><th>Features</th><th>Actions</th></tr></thead>
+          <tbody id="plans-tbody">
+            <tr><td colspan="6" style="text-align:center;padding:32px;color:var(--text-muted)">Loading plans...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>📄 Required Documents</h3>
+        </div>
+        <div style="padding:24px">
+          <div id="requirements-list" style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--surface-2);border-radius:8px">
+              <span>Valid Government ID</span>
+              <button class="btn btn-sm" style="padding:4px 8px;background:rgba(239,68,68,0.1);color:var(--danger)" onclick="removeRequirement('gov-id')"><span class="material-symbols-rounded" style="font-size:16px">close</span></button>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--surface-2);border-radius:8px">
+              <span>Proof of Address</span>
+              <button class="btn btn-sm" style="padding:4px 8px;background:rgba(239,68,68,0.1);color:var(--danger)" onclick="removeRequirement('address')"><span class="material-symbols-rounded" style="font-size:16px">close</span></button>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:var(--surface-2);border-radius:8px">
+              <span>2x2 Photo (Recent)</span>
+              <button class="btn btn-sm" style="padding:4px 8px;background:rgba(239,68,68,0.1);color:var(--danger)" onclick="removeRequirement('photo')"><span class="material-symbols-rounded" style="font-size:16px">close</span></button>
+            </div>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:8px">
+            <input type="text" class="input-field" id="new-requirement" placeholder="New requirement" style="flex:1">
+            <button class="btn btn-sm btn-primary" onclick="addRequirement()">Add</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>🏷️ Coverage Tags</h3>
+        </div>
+        <div style="padding:24px">
+          <div id="coverage-tags" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+            <span class="badge" style="background:rgba(59,130,246,0.1);color:var(--accent)">Maternity <button onclick="removeTag('maternity')" style="background:none;border:none;color:inherit;margin-left:6px;cursor:pointer">×</button></span>
+            <span class="badge" style="background:rgba(59,130,246,0.1);color:var(--accent)">Optical <button onclick="removeTag('optical')" style="background:none;border:none;color:inherit;margin-left:6px;cursor:pointer">×</button></span>
+            <span class="badge" style="background:rgba(59,130,246,0.1);color:var(--accent)">Dental <button onclick="removeTag('dental')" style="background:none;border:none;color:inherit;margin-left:6px;cursor:pointer">×</button></span>
+            <span class="badge" style="background:rgba(59,130,246,0.1);color:var(--accent)">Mental Health <button onclick="removeTag('mental')" style="background:none;border:none;color:inherit;margin-left:6px;cursor:pointer">×</button></span>
+          </div>
+          <div style="display:flex;gap:8px">
+            <input type="text" class="input-field" id="new-tag" placeholder="New tag" style="flex:1">
+            <button class="btn btn-sm btn-primary" onclick="addCoverageTag()">Add Tag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
