@@ -1,0 +1,73 @@
+<div id="admin-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>Admin Dashboard</h1>
+      <p>Manage Health Insurance enrollment applications and member accounts</p>
+    </div>
+    <div class="admin-stats" id="admin-stats"></div>
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>📋 All Applications</h3>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <input type="text" class="input-field" id="admin-search" placeholder="Search applications..." style="width:220px;padding:8px 12px;font-size:0.85rem" oninput="filterAdminTable()">
+          <div class="select-wrapper" style="width:150px"><select class="input-field" id="admin-filter" style="padding:8px 12px;font-size:0.85rem" onchange="filterAdminTable()"><option value="">All Status</option><option value="Pending">Pending</option><option value="Under Review">Under Review</option><option value="Approved">Approved</option><option value="Rejected">Rejected</option></select><span class="material-symbols-rounded chevron">expand_more</span></div>
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>App ID</th><th>Applicant</th><th>Plan</th><th>Submitted</th><th>Schedule</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="admin-table-body"></tbody>
+        </table>
+        <div id="admin-empty" class="empty-state hidden"><div class="icon"><span class="material-symbols-rounded" style="font-size:48px">inbox</span></div><h3>No Applications</h3><p>No enrollment applications have been submitted yet.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="app-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><span class="material-symbols-rounded" style="font-size:22px">description</span> Application Details</h2>
+      <button class="modal-close-btn" onclick="closeModal()"><span class="material-symbols-rounded">close</span></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">info</span> Basic Information</h3>
+        <div class="modal-grid">
+          <div class="modal-field"><label>Application ID</label><div class="modal-field-value" id="modal-app-id">—</div></div>
+          <div class="modal-field"><label>Plan</label><div class="modal-field-value" id="modal-service">—</div></div>
+          <div class="modal-field"><label>Applicant</label><div class="modal-field-value" id="modal-citizen">—</div></div>
+          <div class="modal-field"><label>Submitted</label><div class="modal-field-value" id="modal-date">—</div></div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">assignment</span> Status & Schedule</h3>
+        <div class="modal-grid">
+          <div class="modal-field"><label>Current Status</label><div class="modal-field-value" id="modal-status">—</div></div>
+          <div class="modal-field"><label>Payment Method</label><div class="modal-field-value" id="modal-payment">—</div></div>
+          <div class="modal-field"><label>Pickup Branch</label><div class="modal-field-value" id="modal-branch">—</div></div>
+          <div class="modal-field"><label>Pickup Date & Time</label><div class="modal-field-value" id="modal-schedule">—</div></div>
+          <div class="modal-field full"><label>Claimant</label><div class="modal-field-value" id="modal-claimer">—</div></div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">person</span> Personal Details</h3>
+        <div class="modal-grid">
+          <div class="modal-field"><label>Email</label><div class="modal-field-value" id="modal-email">—</div></div>
+          <div class="modal-field"><label>Contact</label><div class="modal-field-value" id="modal-contact">—</div></div>
+          <div class="modal-field full"><label>Address</label><div class="modal-field-value" id="modal-address">—</div></div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3><span class="material-symbols-rounded" style="font-size:14px">folder</span> Documents</h3>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="padding:10px 14px;background:var(--surface-2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:space-between"><span style="color:var(--text-soft);font-size:0.87rem">Valid Government ID</span><span class="material-symbols-rounded" style="color:var(--success);font-size:18px">check_circle</span></div>
+          <div style="padding:10px 14px;background:var(--surface-2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:space-between"><span style="color:var(--text-soft);font-size:0.87rem">Proof of Address</span><span class="material-symbols-rounded" style="color:var(--success);font-size:18px">check_circle</span></div>
+          <div style="padding:10px 14px;background:var(--surface-2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:space-between"><span style="color:var(--text-soft);font-size:0.87rem">Recent 2x2 Photo</span><span class="material-symbols-rounded" style="color:var(--success);font-size:18px">check_circle</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions" id="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
