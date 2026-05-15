@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Insurance ePortal | National Health Insurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+<link rel="stylesheet" href="/Assets/style.css">
+<script src="/Assets/server.js"></script>
+</head>
+
+<body>
+<div id="home-page" class="page active">
+  <div class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="material-symbols-rounded" style="font-size:13px">verified</span>
+        Official Health Insurance Portal
+      </div>
+      <h1>Your Health,<br><span class="gradient-text">Our Commitment</span></h1>
+      <p>Enroll in Health Insurance online. Choose your plan, schedule your appointment, and manage your national health insurance coverage all in one secure portal.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="navigate('plans')">
+          <span class="material-symbols-rounded">favorite</span> View Insurance Plans
+        </button>
+        <button class="btn btn-ghost btn-lg" onclick="navigate('process')">
+          <span class="material-symbols-rounded">info</span> How it Works
+        </button>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="container">
+      <div class="grid-4">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(59,130,246,0.12);color:var(--accent)"><span class="material-symbols-rounded">group</span></div>
+          <div><div class="stat-value">115M+</div><div class="stat-label">Filipinos Covered</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(16,185,129,0.12);color:var(--success)"><span class="material-symbols-rounded">check_circle</span></div>
+          <div><div class="stat-value" style="color:var(--success)">98.3%</div><div class="stat-label">Approval Rate</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(245,158,11,0.12);color:var(--gold)"><span class="material-symbols-rounded">schedule</span></div>
+          <div><div class="stat-value" style="color:var(--gold)">3–5</div><div class="stat-label">Days Processing</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(109,40,217,0.12);color:var(--accent-2)"><span class="material-symbols-rounded">local_hospital</span></div>
+          <div><div class="stat-value" style="color:#A78BFA">10,000+</div><div class="stat-label">Accredited Hospitals</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Plan Preview on Home -->
+  <div class="plans-section">
+    <div class="container">
+      <div class="section-eyebrow">Insurance Plans</div>
+      <div class="section-title">Choose the Right<br><span class="gradient-text">Coverage for You</span></div>
+      <div class="section-subtitle mb-32">From basic protection for low-income families to comprehensive premium coverage there's a Health Insuranceplan for every Filipino.</div>
+ 
+      <div class="plans-grid">
+        <!-- BASIC -->
+        <div class="plan-card" onclick="navigate('plans')">
+          <div class="plan-icon" style="background:rgba(16,185,129,0.12);color:var(--success)">🛡️</div>
+          <div class="plan-name">Basic Coverage</div>
+          <div class="plan-tagline">For indigent & low-income members</div>
+          <div class="plan-price">
+            <span class="free-tag text-success">FREE</span>
+            <span class="period">/ government-subsidized</span>
+          </div>
+          <ul class="plan-features">
+            <li><span class="material-symbols-rounded check">check_circle</span>Inpatient hospital coverage</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>Emergency care</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>Maternity benefits</li>
+            <li><span class="material-symbols-rounded cross">remove_circle</span>Outpatient coverage</li>
+          </ul>
+          <button class="btn btn-outline btn-block">Learn More</button>
+        </div>
+ 
+        <!-- STANDARD (POPULAR) -->
+        <div class="plan-card popular" onclick="navigate('plans')" style="margin-top: -8px;">
+          <div class="plan-badge blue">Most Popular</div>
+          <div class="plan-icon" style="background:rgba(59,130,246,0.12);color:var(--accent)">💙</div>
+          <div class="plan-name gradient-text">Standard Plan</div>
+          <div class="plan-tagline">For employed & self-earning members</div>
+          <div class="plan-price">
+            <span class="amount gradient-text">₱300</span>
+            <span class="period">/ month (3% of income)</span>
+          </div>
+          <ul class="plan-features">
+            <li><span class="material-symbols-rounded check">check_circle</span>Full inpatient coverage</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>Outpatient consultations</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>Dental & eye care</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>Dependents covered</li>
+          </ul>
+          <button class="btn btn-primary btn-block">Apply Now</button>
+        </div>
+ 
+        <!-- PREMIUM -->
+        <div class="plan-card premium" onclick="navigate('plans')">
+          <div class="plan-badge gold">Premium</div>
+          <div class="plan-icon" style="background:rgba(245,158,11,0.12);color:var(--gold)">⭐</div>
+          <div class="plan-name gold-text">Premium Plus</div>
+          <div class="plan-tagline">For OFWs & high-income earners</div>
+          <div class="plan-price">
+            <span class="amount gold-text">₱2,400</span>
+            <span class="period">/ month</span>
+          </div>
+          <ul class="plan-features">
+            <li><span class="material-symbols-rounded check">check_circle</span>All Standard benefits</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>Private room coverage</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>International emergency</li>
+            <li><span class="material-symbols-rounded check">check_circle</span>Priority processing</li>
+          </ul>
+          <button class="btn btn-gold btn-block">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- How it works preview -->
+  <div class="process-section">
+    <div class="container">
+      <div class="section-eyebrow">Simple Process</div>
+      <div class="section-title mb-8">Enroll in <span class="gradient-text">4 Easy Steps</span></div>
+      <div class="section-subtitle mb-32">Our digital portal makes health insurance enrollment fast, secure, and paperless.</div>
+      <div class="grid-4">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-title">Create Account</div>
+          <div class="step-desc">Register with your email and basic personal details to create your citizen portal account.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-title">Choose a Plan</div>
+          <div class="step-desc">Select the Health Insurance coverage plan that best fits your situation and needs.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-title">Submit & Pay</div>
+          <div class="step-desc">Fill out the form, upload documents, pay your contribution (if applicable), and schedule your pickup.</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-title">Get Your ID</div>
+          <div class="step-desc">Receive your Health Insurance Member Data Record (MDR) and ID on your scheduled date and time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Announcements -->
+  <div class="ann-section">
+    <div class="container">
+      <div class="section-title mb-8">Latest Announcements</div>
+      <div class="section-subtitle mb-32">Stay updated with PhilHealth news and enrollment advisories.</div>
+      <div class="grid-3">
+        <div class="ann-card">
+          <div class="ann-date"><span class="material-symbols-rounded" style="font-size:14px">calendar_today</span> May 1, 2026</div>
+          <span class="badge badge-success mb-8">New</span>
+          <h3>Digital ID Delivery Available</h3>
+          <p>Health Insurance MDR and e-Card can now be delivered to your email after approval. Physical card pickup is still available at your selected office.</p>
+        </div>
+        <div class="ann-card">
+          <div class="ann-date"><span class="material-symbols-rounded" style="font-size:14px">calendar_today</span> April 20, 2026</div>
+          <span class="badge badge-warning mb-8">Advisory</span>
+          <h3>Updated Contribution Rates for 2026</h3>
+          <p>Health Insurance contribution rate for employed members has been updated to 5% of monthly basic salary, effective January 2026. Premium Plus is unchanged.</p>
+        </div>
+        <div class="ann-card">
+          <div class="ann-date"><span class="material-symbols-rounded" style="font-size:14px">calendar_today</span> April 10, 2026</div>
+          <span class="badge badge-info mb-8">System</span>
+          <h3>Online Enrollment Portal Expanded</h3>
+          <p>This portal now covers all Health Insurance plans including OFW enrollment, indigent membership, and voluntary contributions from self-earning members.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to Get Covered?</h2>
+        <p>Enroll in Health Insurance today. Your health and the health of your family is the country's priority.</p>
+        <div class="flex gap-12" style="justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-primary btn-lg" onclick="navigate('login')">Create Free Account</button>
+          <button class="btn btn-ghost btn-lg" onclick="navigate('plans')">
+            <span class="material-symbols-rounded">health_and_safety</span> View Plans
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="cursor:default">❤️ <span style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700">Health Insurance ePortal</span></div>
+          <p>The official digital gateway for Health Insurance enrollment. Secure, accessible, and built for every Filipino.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Plans</h4>
+          <ul>
+            <li><a href="#" onclick="navigate('plans');return false">Basic Coverage</a></li>
+            <li><a href="#" onclick="navigate('plans');return false">Standard Plan</a></li>
+            <li><a href="#" onclick="navigate('plans');return false">Premium Plus</a></li>
+            <li><a href="#" onclick="navigate('plans');return false">OFW Coverage</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Health Insurance</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Hotline: 8-441-7442</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Data Security</a></li>
+            <li><a href="#">Republic Act 11223</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Health Insurance Corporation. All rights reserved.</span>
+        <span>A project of the Department of Health & DICT</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
