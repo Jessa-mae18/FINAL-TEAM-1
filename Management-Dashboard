@@ -1,0 +1,87 @@
+<div id="control-panel-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>🎯 Unified Management Dashboard</h1>
+      <p>Real-time application analytics, revenue overview, and system health monitoring</p>
+    </div>
+    <div class="admin-stats" id="dashboard-stats">
+      <div class="admin-stat">
+        <div class="label">📋 Total Applications</div>
+        <div class="value" id="stat-total-apps">0</div>
+      </div>
+      <div class="admin-stat">
+        <div class="label">✅ Approved</div>
+        <div class="value" id="stat-approved">0</div>
+      </div>
+      <div class="admin-stat">
+        <div class="label">⏳ Pending Review</div>
+        <div class="value" id="stat-pending">0</div>
+      </div>
+      <div class="admin-stat">
+        <div class="label">❌ Rejected</div>
+        <div class="value" id="stat-rejected">0</div>
+      </div>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>💰 Revenue Overview</h3>
+        </div>
+        <div style="padding:24px">
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Bronze Plan</span><span style="font-weight:600">₱125,000/mo</span></div>
+            <div style="height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden"><div style="height:100%;width:35%;background:var(--accent);border-radius:4px"></div></div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Silver Plan</span><span style="font-weight:600">₱275,000/mo</span></div>
+            <div style="height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden"><div style="height:100%;width:55%;background:var(--gold);border-radius:4px"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span>Gold Plan</span><span style="font-weight:600">₱450,000/mo</span></div>
+            <div style="height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden"><div style="height:100%;width:75%;background:var(--success);border-radius:4px"></div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>👥 User Growth Metrics</h3>
+        </div>
+        <div style="padding:24px">
+          <div id="growth-chart" style="text-align:center">
+            <div style="font-size:2.4rem;font-weight:700;color:var(--accent);margin-bottom:8px" id="total-members">0</div>
+            <div style="color:var(--text-soft);font-size:0.9rem;margin-bottom:16px">Total registered members</div>
+            <div style="padding:12px;background:var(--surface-2);border-radius:8px;font-size:0.85rem">
+              <div style="margin-bottom:8px"><span style="color:var(--text-muted)">This Month:</span> <span style="color:var(--accent);font-weight:600" id="monthly-growth">+0</span></div>
+              <div><span style="color:var(--text-muted)">This Year:</span> <span style="color:var(--success);font-weight:600" id="yearly-growth">+0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>🖥️ System Health</h3>
+      </div>
+      <div style="padding:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <div style="border-left:3px solid var(--accent);padding-left:16px">
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:8px">SERVER STATUS</div>
+          <div style="font-size:1.4rem;font-weight:700;color:var(--success)">🟢 Operational</div>
+          <div style="font-size:0.78rem;color:var(--text-soft);margin-top:4px">Response: 45ms</div>
+        </div>
+        <div style="border-left:3px solid var(--success);padding-left:16px">
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:8px">DATABASE LOAD</div>
+          <div style="font-size:1.4rem;font-weight:700;color:var(--success)">23%</div>
+          <div style="font-size:0.78rem;color:var(--text-soft);margin-top:4px">Healthy</div>
+        </div>
+        <div style="border-left:3px solid var(--gold);padding-left:16px">
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:8px">ACTIVE SESSIONS</div>
+          <div style="font-size:1.4rem;font-weight:700;color:var(--gold)" id="active-sessions">0</div>
+          <div style="font-size:0.78rem;color:var(--text-soft);margin-top:4px">Users online</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
