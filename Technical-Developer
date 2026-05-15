@@ -1,0 +1,108 @@
+<div id="technical-addons-page" class="page">
+  <div class="container admin-page">
+    <div class="page-header">
+      <h1>⚙️ Technical & Development Add-ons</h1>
+      <p>Maintenance mode, error reporting, and email templates</p>
+    </div>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>🔧 Maintenance Mode</h3>
+        </div>
+        <div style="padding:24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+            <div>
+              <div style="font-weight:600">Portal Status</div>
+              <div style="font-size:0.85rem;color:var(--text-soft);margin-top:4px">Currently operational</div>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="maintenance-toggle">
+              <label for="maintenance-toggle"></label>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Maintenance Message</label>
+            <textarea class="input-field" style="min-height:80px;resize:vertical" placeholder="Message shown during maintenance...">We're performing scheduled maintenance. We'll be back online soon.</textarea>
+          </div>
+          <button class="btn btn-sm btn-primary" style="margin-top:12px" onclick="showToast('Portal status updated successfully','success')">Update Status</button>
+        </div>
+      </div>
+      
+      <div class="admin-table-card">
+        <div class="admin-table-header">
+          <h3>❌ Error Reporting</h3>
+        </div>
+        <div style="padding:24px">
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+              <span style="font-size:0.9rem;font-weight:600">Frontend Errors (Last 7d)</span>
+              <span style="color:var(--danger);font-weight:600">12</span>
+            </div>
+            <div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden"><div style="height:100%;width:60%;background:var(--danger)"></div></div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+              <span style="font-size:0.9rem;font-weight:600">Backend Errors (Last 7d)</span>
+              <span style="color:var(--warning);font-weight:600">3</span>
+            </div>
+            <div style="height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden"><div style="height:100%;width:20%;background:var(--warning)"></div></div>
+          </div>
+          <button class="btn btn-sm btn-ghost" style="width:100%;margin-top:12px">View Error Log</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="admin-table-card">
+      <div class="admin-table-header">
+        <h3>📧 Email Templates</h3>
+        <button class="btn btn-sm btn-primary" onclick="openEmailTemplateModal()"><span class="material-symbols-rounded" style="font-size:16px">add</span> New Template</button>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead><tr><th>Template Name</th><th>Type</th><th>Last Modified</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Application Received</strong></td>
+              <td style="font-size:0.85rem;color:var(--text-soft)">Transactional</td>
+              <td style="color:var(--text-muted)">May 10, 2026</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td><button class="btn btn-sm" style="padding:4px 8px"><span class="material-symbols-rounded" style="font-size:14px">edit</span></button></td>
+            </tr>
+            <tr>
+              <td><strong>Application Approved</strong></td>
+              <td style="font-size:0.85rem;color:var(--text-soft)">Transactional</td>
+              <td style="color:var(--text-muted)">May 8, 2026</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td><button class="btn btn-sm" style="padding:4px 8px"><span class="material-symbols-rounded" style="font-size:14px">edit</span></button></td>
+            </tr>
+            <tr>
+              <td><strong>Appointment Reminder</strong></td>
+              <td style="font-size:0.85rem;color:var(--text-soft)">Transactional</td>
+              <td style="color:var(--text-muted)">May 5, 2026</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td><button class="btn btn-sm" style="padding:4px 8px"><span class="material-symbols-rounded" style="font-size:14px">edit</span></button></td>
+            </tr>
+            <tr>
+              <td><strong>Password Reset</strong></td>
+              <td style="font-size:0.85rem;color:var(--text-soft)">Transactional</td>
+              <td style="color:var(--text-muted)">April 28, 2026</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td><button class="btn btn-sm" style="padding:4px 8px"><span class="material-symbols-rounded" style="font-size:14px">edit</span></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="settings-card" style="margin-top:24px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2)">
+      <h3 style="color:var(--danger)">⚠️ Danger Zone</h3>
+      <div class="desc">Destructive actions — use with extreme caution</div>
+      <div style="padding:20px;background:rgba(239,68,68,0.03);border:1px solid rgba(239,68,68,0.15);border-radius:var(--radius-sm)">
+        <h4 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem;margin-bottom:8px;color:var(--danger)">Clear All Application Data</h4>
+        <p style="font-size:0.85rem;color:var(--text-soft);margin-bottom:16px">This will permanently delete all member applications. Admin and demo accounts will be preserved. This action cannot be undone.</p>
+        <button class="btn btn-sm" style="background:rgba(239,68,68,0.1);color:var(--danger);border:1px solid rgba(239,68,68,0.2)" onclick="openClearAllDataModal()"><span class="material-symbols-rounded" style="font-size:16px">delete_forever</span> Clear All Data</button>
+      </div>
+    </div>
+  </div>
+</div>
