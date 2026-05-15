@@ -1,0 +1,15 @@
+<div id="tracking-page" class="page">
+  <div class="container" style="padding-top:32px;padding-bottom:60px">
+    <div class="page-header">
+      <h1>Track Your Applications</h1>
+      <p>Monitor the status of your submitted Health Insurance enrollment applications</p>
+    </div>
+    <div id="tracking-list"></div>
+    <div id="tracking-empty" class="empty-state hidden">
+      <div class="icon"><span class="material-symbols-rounded" style="font-size:56px">search_off</span></div>
+      <h3>No Applications Yet</h3>
+      <p>You haven't submitted any Health Insurance enrollment applications. Start by choosing a plan.</p>
+      <button class="btn btn-primary mt-16" onclick="navigate('plans')"><span class="material-symbols-rounded">health_and_safety</span> View Insurance Plans</button>
+    </div>
+  </div>
+</div>
